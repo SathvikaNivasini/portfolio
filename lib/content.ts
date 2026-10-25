@@ -378,7 +378,7 @@ export const projects: Project[] = [
     pillars: ["health", "communication"],
     summary:
       "A student mental wellness initiative: 25+ sessions, a 600-student survey, and a web app of emotional-wellness tools used by 900+ students.",
-    cover: "/images/projects/top-the-graph-cover.jpg",
+    cover: "/images/gallery/wings-cards.jpg",
     stats: [
       { value: "600+", label: "Students surveyed" },
       { value: "900+", label: "Students used the app" },
@@ -438,7 +438,7 @@ export const projects: Project[] = [
     pillars: ["entrepreneurship", "technology", "communication"],
     summary:
       "The Coppell Core Technology Innovation Association: 120+ students across ~12 departments, building free software for real district problems.",
-    cover: "/images/projects/cctia-cover.jpg",
+    cover: "/images/gallery/team-lab.jpg",
     stats: [
       { value: "120+", label: "Students recruited" },
       { value: "~12", label: "Departments" },
@@ -638,11 +638,6 @@ export const milestones: Milestone[] = [
         src: "/images/gallery/kerala-championship.jpg",
         alt: "Receiving the certificate at the Kerala Championship of Public Speaking",
         hint: "Kerala Championship — on stage",
-      },
-      {
-        src: "/images/gallery/kerala-finalists.jpg",
-        alt: "Kerala Championship of Public Speaking 2024 junior category finalists",
-        hint: "the finalists poster",
       },
     ],
   },

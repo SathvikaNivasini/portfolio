@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Photo from "@/components/photo";
+import PhotoWall from "@/components/photo-wall";
 import Reveal from "@/components/reveal";
 import Starfield from "@/components/starfield";
 import {
@@ -75,7 +76,7 @@ export default function AboutPage() {
               <div className="polaroid tilt-l relative w-full">
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <Photo
-                    src="/images/gallery/about-portrait.jpg"
+                    src="/images/speaking/tedx-chsa.jpg"
                     alt={profile.name}
                     hint="a warmer, candid portrait of you"
                     sizes="(max-width: 1024px) 85vw, 24rem"
@@ -291,6 +292,61 @@ export default function AboutPage() {
               </ul>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ---------- moments ---------- */}
+      <section className="mx-auto mt-24 max-w-5xl px-4 sm:px-6">
+        <Reveal>
+          <p className="eyebrow">Moments</p>
+          <h2
+            className="font-display mt-3 text-3xl font-semibold sm:text-4xl"
+            style={{ color: "var(--text)" }}
+          >
+            The <span className="underline-sketch">in-between</span> bits
+          </h2>
+          <p className="lede mt-4 max-w-xl">
+            Not everything fits a timeline. These are the ones I kept.
+          </p>
+        </Reveal>
+
+        <div className="mt-10">
+          <PhotoWall
+            items={[
+              {
+                src: "/images/gallery/india-to-texas.jpg",
+                alt: "City lights from an airplane window at night",
+                ratio: "aspect-[3/4]",
+                caption: "ten thousand miles, one dream",
+              },
+              {
+                src: "/images/gallery/wings-portrait.jpg",
+                alt: "At a Wings of Empowerment event",
+                caption: "wings of empowerment",
+              },
+              {
+                src: "/images/gallery/wings-cards.jpg",
+                alt: "Hand-made encouragement cards laid out on a table",
+                caption: "every card written by hand",
+              },
+              {
+                src: "/images/gallery/kerala-championship.jpg",
+                alt: "On stage at the Kerala Championship of Public Speaking",
+                ratio: "aspect-[3/4]",
+                caption: "Kerala championship finals",
+              },
+              {
+                src: "/images/gallery/goggles.jpg",
+                alt: "Wearing safety goggles in a lab",
+                caption: "goggles on ♡",
+              },
+              {
+                src: "/images/gallery/offduty.jpg",
+                alt: "Off duty, at a go-kart track",
+                caption: "off duty",
+              },
+            ]}
+          />
         </div>
       </section>
 

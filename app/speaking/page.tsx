@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Photo from "@/components/photo";
+import PhotoWall from "@/components/photo-wall";
 import Reveal from "@/components/reveal";
 import Starfield from "@/components/starfield";
 import { honors, otherSide, talks } from "@/lib/content";
@@ -107,6 +108,25 @@ export default function SpeakingPage() {
         </div>
 
         <Reveal delay={200}>
+          <p className="eyebrow mt-14">From the TEDx stages</p>
+        </Reveal>
+        <div className="mt-6">
+          <PhotoWall
+            items={[
+              {
+                src: "/images/speaking/tedx-stage.jpg",
+                alt: "Speaking on the TEDx stage",
+                ratio: "aspect-square",
+              },
+              {
+                src: "/images/speaking/tedx-stage-wide.jpg",
+                alt: "Mid-talk on the TEDx stage",
+              },
+            ]}
+          />
+        </div>
+
+        <Reveal delay={260}>
           <p className="margin-note mt-6 text-center text-xl">
             want the video? drop the link and it embeds right here ↑
           </p>

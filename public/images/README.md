@@ -54,6 +54,11 @@ subject roughly centred and leave a little headroom.
 
 ## Still needed from you
 
-- The **live VakShala app URL** — paste it into `VAKSHALA_APP_URL` in
-  `lib/content.ts` and the button appears on the case study.
+- A cover for the **Agentic AI Photobioreactor** case study — the only slot
+  still showing a placeholder. A screenshot of the live digital twin, or one
+  of its charts, would do it.
+- Which TEDx talk each stage photo belongs to, so the two talk cards can use
+  real images instead of placeholders.
 - Optional: **TEDx video links**, if the talks are online.
+
+The VakShala app URL is set (`VAKSHALA_APP_URL` in `lib/content.ts`).

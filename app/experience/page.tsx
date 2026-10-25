@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Photo from "@/components/photo";
+import PhotoWall from "@/components/photo-wall";
 import Reveal from "@/components/reveal";
 import Starfield from "@/components/starfield";
 import { experience } from "@/lib/content";
@@ -154,8 +155,61 @@ export default function ExperiencePage() {
           ))}
         </div>
 
+        <Reveal>
+          <div className="mt-20">
+            <p className="eyebrow">From the terms</p>
+            <h2
+              className="font-display mt-3 text-2xl font-semibold sm:text-3xl"
+              style={{ color: "var(--text)" }}
+            >
+              The people and the rooms.
+            </h2>
+          </div>
+        </Reveal>
+
+        <div className="mt-8">
+          <PhotoWall
+            items={[
+              {
+                src: "/images/gallery/microsoft-innovation-hub.jpg",
+                alt: "At the Microsoft Innovation Hub",
+              },
+              {
+                src: "/images/gallery/ms-colleague-1.jpg",
+                alt: "With a Microsoft colleague",
+                ratio: "aspect-[3/4]",
+              },
+              {
+                src: "/images/gallery/ms-colleague-2.jpg",
+                alt: "With a Microsoft colleague",
+              },
+              {
+                src: "/images/gallery/ms-colleague-3.jpg",
+                alt: "With a Microsoft colleague",
+              },
+              {
+                src: "/images/gallery/ms-colleague-4.jpg",
+                alt: "With a Microsoft colleague",
+              },
+              {
+                src: "/images/gallery/visionet-team.jpg",
+                alt: "With the team at a Microsoft event",
+                ratio: "aspect-[3/4]",
+              },
+              {
+                src: "/images/gallery/team-lab.jpg",
+                alt: "With teammates in a computer lab",
+              },
+              {
+                src: "/images/gallery/calculus-desk.jpg",
+                alt: "Calculus notes, a calculator and coffee",
+              },
+            ]}
+          />
+        </div>
+
         <Reveal delay={200}>
-          <div className="panel mt-10 p-7">
+          <div className="panel mt-14 p-7">
             <p className="eyebrow">What I took from it</p>
             <div className="prose-case mt-4">
               <p>
