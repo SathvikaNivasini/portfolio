@@ -57,7 +57,7 @@ export const pillars: Pillar[] = [
  * Paste the live VakShala app URL here. While it is empty the button is
  * simply not rendered, so the page stays clean either way.
  */
-export const VAKSHALA_APP_URL = "";
+export const VAKSHALA_APP_URL = "https://vakshala-site.netlify.app/";
 
 export type ProjectStatus = "live" | "building" | "research" | "archive";
 
@@ -109,7 +109,7 @@ export const projects: Project[] = [
     pillars: ["communication", "technology", "entrepreneurship"],
     summary:
       "A hybrid AI + human communication coaching platform, profit-positive, with a nonprofit arm giving the same training away free.",
-    cover: "/images/projects/vakshala-cover.jpg",
+    cover: "/images/projects/vakshala-dev.jpg",
     stats: [
       { value: "250+", label: "Students coached personally" },
       { value: "3,000+", label: "Pre-registered users" },

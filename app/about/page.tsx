@@ -72,8 +72,8 @@ export default function AboutPage() {
 
           <Reveal delay={140}>
             <div className="relative mx-auto max-w-sm">
-              <div className="polaroid tilt-l relative aspect-[4/5] w-full">
-                <div className="relative h-full w-full overflow-hidden">
+              <div className="polaroid tilt-l relative w-full">
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <Photo
                     src="/images/gallery/about-portrait.jpg"
                     alt={profile.name}

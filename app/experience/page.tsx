@@ -44,8 +44,8 @@ export default function ExperiencePage() {
         <Reveal delay={120}>
           <figure className="mt-12">
             <div className="grid max-w-xl gap-6 sm:grid-cols-2">
-              <div className="polaroid tilt-l relative aspect-[3/4]">
-                <div className="relative h-full w-full overflow-hidden">
+              <div className="polaroid tilt-l relative">
+                <div className="relative aspect-[3/4] w-full overflow-hidden">
                   <Photo
                     src="/images/gallery/microsoft-office.jpg"
                     alt="Sathvika at a Microsoft office, wearing an intern badge"
@@ -54,8 +54,8 @@ export default function ExperiencePage() {
                   />
                 </div>
               </div>
-              <div className="polaroid tilt-r relative aspect-[3/4]">
-                <div className="relative h-full w-full overflow-hidden">
+              <div className="polaroid tilt-r relative">
+                <div className="relative aspect-[3/4] w-full overflow-hidden">
                   <Photo
                     src="/images/gallery/innovation-hub-wall.jpg"
                     alt="Sathvika at the Microsoft Innovation Hub wall"
@@ -65,6 +65,25 @@ export default function ExperiencePage() {
                 </div>
               </div>
             </div>
+            <div className="mt-6 max-w-xl">
+              <div
+                className="relative aspect-[4/3] overflow-hidden rounded-xl"
+                style={{ border: "1px solid var(--border)" }}
+              >
+                <Photo
+                  src="/images/gallery/ms-whiteboard.jpg"
+                  alt="Presenting an account and product-group diagram at a whiteboard"
+                  hint="you presenting at a whiteboard"
+                  sizes="(max-width: 640px) 90vw, 36rem"
+                />
+              </div>
+              <p className="mt-3 text-xs" style={{ color: "var(--text-faint)" }}>
+                Walking through a customer-engagement model on the whiteboard.
+                The company on the board is Contoso — Microsoft&apos;s standard
+                fictional example.
+              </p>
+            </div>
+
             <figcaption className="margin-note mt-6">
               grateful for this one ♡
             </figcaption>

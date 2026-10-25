@@ -115,8 +115,8 @@ export default function Home() {
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <Reveal>
             <div className="relative mx-auto grid max-w-sm grid-cols-2 gap-4">
-              <div className="polaroid tilt-l relative col-span-2 aspect-[4/3]">
-                <div className="relative h-full w-full overflow-hidden">
+              <div className="polaroid tilt-l relative col-span-2">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Photo
                     src="/images/gallery/india-to-texas.jpg"
                     alt="Sathvika — between India and Texas"
@@ -128,8 +128,8 @@ export default function Home() {
                   ten thousand miles, one dream
                 </p>
               </div>
-              <div className="polaroid tilt-r relative aspect-square">
-                <div className="relative h-full w-full overflow-hidden">
+              <div className="polaroid tilt-r relative">
+                <div className="relative aspect-square w-full overflow-hidden">
                   <Photo
                     src="/images/speaking/tedx-stage.jpg"
                     alt="Speaking on the TEDx stage"
@@ -138,8 +138,8 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="polaroid tilt-l relative aspect-square">
-                <div className="relative h-full w-full overflow-hidden">
+              <div className="polaroid tilt-l relative">
+                <div className="relative aspect-square w-full overflow-hidden">
                   <Photo
                     src="/images/gallery/calculus-desk.jpg"
                     alt="Calculus notes, a calculator and coffee on a desk"
@@ -402,11 +402,11 @@ export default function Home() {
 function HomeClientHeroSlot() {
   return (
     <div className="relative mx-auto max-w-md">
-      <div className="polaroid tilt-r relative aspect-[4/5] w-full">
-        <div className="relative h-full w-full overflow-hidden">
+      <div className="polaroid tilt-r relative w-full">
+        <div className="relative aspect-[4/5] w-full overflow-hidden">
           <Photo
-            src="/images/speaking/tedx-chsa.jpg"
-            alt="Sathvika Nivasini at the TEDx CHSA backdrop"
+            src="/images/gallery/hero-portrait.jpg"
+            alt="Sathvika Nivasini"
             hint="your main hero portrait"
             priority
             sizes="(max-width: 1024px) 90vw, 26rem"

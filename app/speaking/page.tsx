@@ -45,14 +45,14 @@ export default function SpeakingPage() {
 
           <Reveal delay={140}>
             <figure className="relative mx-auto max-w-sm">
-              <div className="polaroid tilt-r relative aspect-square w-full">
-                <div className="relative h-full w-full overflow-hidden">
+              <div className="polaroid tilt-r relative w-full">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Photo
-                    src="/images/speaking/tedx-stage.jpg"
-                    alt="Sathvika on the TEDx stage"
+                    src="/images/speaking/tedx-hero.jpg"
+                    alt="Sathvika on the TEDx stage beside the TEDx letters"
                     hint="you on the TEDx stage"
                     priority
-                    sizes="(max-width: 1024px) 85vw, 24rem"
+                    sizes="(max-width: 1024px) 85vw, 26rem"
                   />
                 </div>
                 <figcaption className="margin-note absolute bottom-3 left-0 w-full text-center">
@@ -236,9 +236,9 @@ export default function SpeakingPage() {
             ].map((p) => (
               <div
                 key={p.f}
-                className={`polaroid ${p.t} relative aspect-[4/5]`}
+                className={`polaroid ${p.t} relative`}
               >
-                <div className="relative h-full w-full overflow-hidden">
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
                   <Photo
                     src={`/images/speaking/${p.f}`}
                     alt={p.a}
