@@ -179,23 +179,36 @@ export default function AboutPage() {
           </Reveal>
         </div>
 
-        <Reveal delay={200}>
-          <div className="mt-8 max-w-md">
-            <figure className="polaroid polaroid-tight tilt-l relative">
-              <div className="relative aspect-[4/3] w-full overflow-hidden">
-                <Photo
-                  src="/images/gallery/breadboard.jpg"
-                  alt="A breadboard wired with a potentiometer, resistors, capacitor and two LEDs"
-                  hint="the breadboard, wired up"
-                  sizes="(max-width: 640px) 90vw, 28rem"
-                />
-              </div>
-              <figcaption className="margin-note mt-3 text-center">
-                wired by hand, every time
-              </figcaption>
-            </figure>
-          </div>
-        </Reveal>
+        <div className="mt-10">
+          <PhotoWall
+            columns="columns-2 sm:columns-4"
+            items={[
+              {
+                src: "/images/gallery/breadboard.jpg",
+                alt: "A breadboard wired with a potentiometer, resistors, a capacitor and two LEDs",
+                caption: "wired by hand, every time",
+              },
+              {
+                src: "/images/gallery/lemon-battery.jpg",
+                alt: "Two lemons wired through forks, powering a small digital clock",
+                ratio: "aspect-[3/4]",
+                caption: "two lemons, one working clock",
+              },
+              {
+                src: "/images/gallery/hand-generator.jpg",
+                alt: "A hand-cranked generator built from cardboard and wood, mid-spin",
+                ratio: "aspect-[3/4]",
+                caption: "cranked by hand",
+              },
+              {
+                src: "/images/gallery/jar-build.jpg",
+                alt: "A jar mounted on a cardboard base with a wired switch",
+                ratio: "aspect-[3/4]",
+                caption: "a jar, a switch, an idea",
+              },
+            ]}
+          />
+        </div>
       </section>
 
       {/* ---------- timeline ---------- */}

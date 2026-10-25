@@ -250,6 +250,41 @@ export default function SpeakingPage() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={200}>
+          <figure className="mt-14">
+            <p className="eyebrow">In print</p>
+            <h3
+              className="font-display mt-3 text-xl font-semibold"
+              style={{ color: "var(--text)" }}
+            >
+              &ldquo;What is Life?&rdquo; — The Times of India
+            </h3>
+            <div
+              className="mt-5 overflow-hidden rounded-xl"
+              style={{ border: "1px solid var(--border)" }}
+            >
+              <div className="relative aspect-[1280/864] w-full">
+                <Photo
+                  src="/images/gallery/times-of-india.jpg"
+                  alt="A Times of India page carrying the essay 'What is Life?' by B. C. Sathvika Nivasini, Class 8, Kendriya Vidyalaya, Minambakkam"
+                  hint="the Times of India clipping"
+                  sizes="(max-width: 768px) 95vw, 60rem"
+                />
+              </div>
+            </div>
+            <figcaption
+              className="mt-3 text-sm leading-relaxed"
+              style={{ color: "var(--text-muted)" }}
+            >
+              Published in Class 8, under my own byline.{" "}
+              <span style={{ color: "var(--text-faint)" }}>
+                &ldquo;Life is a mysterious storybook that is being written
+                after every moment of life is over.&rdquo;
+              </span>
+            </figcaption>
+          </figure>
+        </Reveal>
       </section>
 
       {/* honors */}
