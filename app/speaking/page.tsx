@@ -24,7 +24,7 @@ export default function SpeakingPage() {
           }}
           aria-hidden
         />
-        <div className="relative mx-auto max-w-4xl">
+        <div className="relative mx-auto grid max-w-5xl items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <Reveal>
             <p className="eyebrow">04 — The other side of me</p>
             <h1
@@ -41,6 +41,25 @@ export default function SpeakingPage() {
               that communication education should be free. This is the part of
               the portfolio that is not a résumé.
             </p>
+          </Reveal>
+
+          <Reveal delay={140}>
+            <figure className="relative mx-auto max-w-sm">
+              <div className="polaroid tilt-r relative aspect-square w-full">
+                <div className="relative h-full w-full overflow-hidden">
+                  <Photo
+                    src="/images/speaking/tedx-stage.jpg"
+                    alt="Sathvika on the TEDx stage"
+                    hint="you on the TEDx stage"
+                    priority
+                    sizes="(max-width: 1024px) 85vw, 24rem"
+                  />
+                </div>
+                <figcaption className="margin-note absolute bottom-3 left-0 w-full text-center">
+                  the red letters ♡
+                </figcaption>
+              </div>
+            </figure>
           </Reveal>
         </div>
       </section>
