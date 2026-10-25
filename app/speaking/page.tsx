@@ -209,9 +209,24 @@ export default function SpeakingPage() {
         <Reveal>
           <div className="grid grid-cols-2 gap-5 sm:grid-cols-3">
             {[
-              { f: "stage-1.jpg", h: "you mid-speech, on stage", t: "tilt-l" },
-              { f: "stage-2.jpg", h: "with an audience or trophy", t: "tilt-r" },
-              { f: "stage-3.jpg", h: "teaching a workshop", t: "tilt-l" },
+              {
+                f: "tedx-stage-wide.jpg",
+                a: "Mid-talk on the TEDx stage",
+                h: "you mid-speech, on stage",
+                t: "tilt-l",
+              },
+              {
+                f: "stage-award.jpg",
+                a: "Shaking hands on stage at an awards ceremony",
+                h: "with an audience or trophy",
+                t: "tilt-r",
+              },
+              {
+                f: "nhs-certificates.jpg",
+                a: "Holding certificates at Coppell High School",
+                h: "certificates in hand",
+                t: "tilt-l",
+              },
             ].map((p) => (
               <div
                 key={p.f}
@@ -220,7 +235,7 @@ export default function SpeakingPage() {
                 <div className="relative h-full w-full overflow-hidden">
                   <Photo
                     src={`/images/speaking/${p.f}`}
-                    alt={p.h}
+                    alt={p.a}
                     hint={p.h}
                     sizes="(max-width: 640px) 45vw, 16rem"
                   />

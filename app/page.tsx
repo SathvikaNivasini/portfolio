@@ -131,8 +131,8 @@ export default function Home() {
               <div className="polaroid tilt-r relative aspect-square">
                 <div className="relative h-full w-full overflow-hidden">
                   <Photo
-                    src="/images/gallery/speaking.jpg"
-                    alt="On stage"
+                    src="/images/speaking/tedx-stage.jpg"
+                    alt="Speaking on the TEDx stage"
                     hint="you, on a stage"
                     sizes="12rem"
                   />
@@ -141,8 +141,8 @@ export default function Home() {
               <div className="polaroid tilt-l relative aspect-square">
                 <div className="relative h-full w-full overflow-hidden">
                   <Photo
-                    src="/images/gallery/building.jpg"
-                    alt="Building"
+                    src="/images/gallery/calculus-desk.jpg"
+                    alt="Calculus notes, a calculator and coffee on a desk"
                     hint="you, building something"
                     sizes="12rem"
                   />
@@ -405,8 +405,8 @@ function HomeClientHeroSlot() {
       <div className="polaroid tilt-r relative aspect-[4/5] w-full">
         <div className="relative h-full w-full overflow-hidden">
           <Photo
-            src="/images/gallery/hero-portrait.jpg"
-            alt="Sathvika Nivasini"
+            src="/images/speaking/tedx-chsa.jpg"
+            alt="Sathvika Nivasini at the TEDx CHSA backdrop"
             hint="your main hero portrait"
             priority
             sizes="(max-width: 1024px) 90vw, 26rem"

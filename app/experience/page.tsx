@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Photo from "@/components/photo";
 import Reveal from "@/components/reveal";
 import Starfield from "@/components/starfield";
 import { experience } from "@/lib/content";
@@ -38,6 +39,24 @@ export default function ExperiencePage() {
             of the work and what I took from it — no confidential company
             information, by design.
           </p>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <figure className="relative mt-12 max-w-sm">
+            <div className="polaroid tilt-r relative aspect-[4/3] w-full">
+              <div className="relative h-full w-full overflow-hidden">
+                <Photo
+                  src="/images/gallery/microsoft-innovation-hub.jpg"
+                  alt="Sathvika at the Microsoft Innovation Hub, wearing an intern badge"
+                  hint="you at Microsoft"
+                  sizes="(max-width: 640px) 85vw, 24rem"
+                />
+              </div>
+            </div>
+            <figcaption className="margin-note mt-5">
+              grateful for this one ♡
+            </figcaption>
+          </figure>
         </Reveal>
 
         <div className="mt-14 space-y-5">
