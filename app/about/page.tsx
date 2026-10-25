@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Clip from "@/components/clip";
 import Photo from "@/components/photo";
 import PhotoWall from "@/components/photo-wall";
 import Reveal from "@/components/reveal";
@@ -304,6 +305,72 @@ export default function AboutPage() {
             </div>
           </Reveal>
         </div>
+      </section>
+
+      {/* ---------- the circuits ---------- */}
+      <section className="mx-auto mt-24 max-w-5xl px-4 sm:px-6">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+          <Reveal>
+            <p className="eyebrow">Before any of it</p>
+            <h2
+              className="font-display mt-3 text-3xl font-semibold sm:text-4xl"
+              style={{ color: "var(--text)" }}
+            >
+              A circuit, a notebook,
+              <br />
+              and an LED that{" "}
+              <span className="underline-sketch">finally lit</span>
+            </h2>
+            <div className="prose-case mt-6">
+              <p>
+                Long before Azure pipelines and neural networks, this is what
+                engineering actually looked like: a breadboard, a 9V battery,
+                and a circuit diagram worked out by hand on ruled paper next to
+                it.
+              </p>
+              <p>
+                I still think this is the honest version of the job. Most of it
+                is not working, and then a small blue light comes on and you
+                understand something you did not understand an hour ago.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={140}>
+            <div className="grid grid-cols-2 gap-5">
+              <Clip
+                src="/video/circuit-1.mp4"
+                poster="/video/circuit-1.jpg"
+                label="A breadboard circuit with a blue LED lit, beside handwritten circuit notes"
+                caption="it works ♡"
+                tilt="tilt-l"
+              />
+              <Clip
+                src="/video/circuit-2.mp4"
+                poster="/video/circuit-2.jpg"
+                label="A close view of the lit LED on the breadboard"
+              />
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal delay={200}>
+          <div className="mt-8 max-w-md">
+            <figure className="polaroid polaroid-tight tilt-l relative">
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <Photo
+                  src="/images/gallery/breadboard.jpg"
+                  alt="A breadboard wired with a potentiometer, resistors, capacitor and two LEDs"
+                  hint="the breadboard, wired up"
+                  sizes="(max-width: 640px) 90vw, 28rem"
+                />
+              </div>
+              <figcaption className="margin-note mt-3 text-center">
+                wired by hand, every time
+              </figcaption>
+            </figure>
+          </div>
+        </Reveal>
       </section>
 
       {/* ---------- what someone else says ---------- */}
