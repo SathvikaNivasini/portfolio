@@ -193,7 +193,7 @@ export const projects: Project[] = [
     pillars: ["health", "technology", "entrepreneurship"],
     summary:
       "A wrist-worn band and companion app that passively reads five biometric signals to catch an emotional crisis before the person feels it coming.",
-    cover: "/images/projects/nirvband-cover.jpg",
+    cover: "/images/projects/nirvband-planning.jpg",
     stats: [
       { value: "11 years", label: "Average delay to first treatment" },
       { value: "970M", label: "People affected globally" },

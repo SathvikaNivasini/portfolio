@@ -207,7 +207,7 @@ export default function SpeakingPage() {
       {/* photo strip */}
       <section className="mx-auto mt-24 max-w-5xl px-4 sm:px-6">
         <Reveal>
-          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
             {[
               {
                 f: "tedx-stage-wide.jpg",
@@ -222,10 +222,16 @@ export default function SpeakingPage() {
                 t: "tilt-r",
               },
               {
+                f: "teaching.jpg",
+                a: "Teaching a session in a classroom",
+                h: "teaching a workshop",
+                t: "tilt-l",
+              },
+              {
                 f: "nhs-certificates.jpg",
                 a: "Holding certificates at Coppell High School",
                 h: "certificates in hand",
-                t: "tilt-l",
+                t: "tilt-r",
               },
             ].map((p) => (
               <div

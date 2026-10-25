@@ -42,18 +42,30 @@ export default function ExperiencePage() {
         </Reveal>
 
         <Reveal delay={120}>
-          <figure className="relative mt-12 max-w-sm">
-            <div className="polaroid tilt-r relative aspect-[4/3] w-full">
-              <div className="relative h-full w-full overflow-hidden">
-                <Photo
-                  src="/images/gallery/microsoft-innovation-hub.jpg"
-                  alt="Sathvika at the Microsoft Innovation Hub, wearing an intern badge"
-                  hint="you at Microsoft"
-                  sizes="(max-width: 640px) 85vw, 24rem"
-                />
+          <figure className="mt-12">
+            <div className="grid max-w-2xl gap-5 sm:grid-cols-[0.8fr_1fr]">
+              <div className="polaroid tilt-l relative aspect-[3/4]">
+                <div className="relative h-full w-full overflow-hidden">
+                  <Photo
+                    src="/images/gallery/microsoft-office.jpg"
+                    alt="Sathvika at a Microsoft office, wearing an intern badge"
+                    hint="you at Microsoft"
+                    sizes="(max-width: 640px) 85vw, 18rem"
+                  />
+                </div>
+              </div>
+              <div className="polaroid tilt-r relative aspect-[4/3] self-center">
+                <div className="relative h-full w-full overflow-hidden">
+                  <Photo
+                    src="/images/gallery/microsoft-innovation-hub.jpg"
+                    alt="Sathvika at the Microsoft Innovation Hub"
+                    hint="the Innovation Hub"
+                    sizes="(max-width: 640px) 85vw, 22rem"
+                  />
+                </div>
               </div>
             </div>
-            <figcaption className="margin-note mt-5">
+            <figcaption className="margin-note mt-6">
               grateful for this one ♡
             </figcaption>
           </figure>
