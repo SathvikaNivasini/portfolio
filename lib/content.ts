@@ -233,7 +233,11 @@ export const projects: Project[] = [
     architecture: [
       {
         title: "The band",
-        body: "Five sensors on an ESP32 WROOM32: MAX30102 for heart rate, HRV and SpO2; a Grove GSR for skin conductance; an MPU6050 for movement and sleep restlessness; an NTC thermistor for skin temperature; and contact pads for wear detection. Total prototype cost $45–64.",
+        body: "Five sensors on an ESP32: MAX30102 for heart rate, HRV and SpO2; a Grove GSR for skin conductance; an MPU6050 for movement and sleep restlessness; skin temperature; and contact pads for wear detection. The first breadboard prototype came to $45–64 in parts.",
+      },
+      {
+        title: "The stack-up",
+        body: "The wearable is built in layers: a moisture-wicking mesh facing outward, the electronics in the middle, and a silver-plated conductive knit against the skin. The board carries an ESP32-PICO-D4, MAX30102, MPU6050 and a MAX30205 digital skin-temperature sensor on a flex-PCB, with an ultra-thin flexible LiPo cell, a TP4056 charger and an LDO regulator. The conductive knit matters as much as the silicon — a sensor that loses skin contact reports nothing, and the band has to be comfortable enough that it is never taken off.",
       },
       {
         title: "Why those five",
@@ -266,7 +270,21 @@ export const projects: Project[] = [
       "Self-beta: two to four weeks wearing it myself with real data, because I should be the first person this is wrong about.",
       "Then a React Native companion app, the emergency system active, and only after that any claim about accuracy.",
     ],
-    stack: ["ESP32", "MAX30102", "Grove GSR", "MPU6050", "Azure IoT Hub", "Stream Analytics", "Databricks", "Azure ML", "React Native"],
+    stack: ["ESP32-PICO-D4", "MAX30102", "Grove GSR", "MPU6050", "MAX30205", "Flex-PCB", "Azure IoT Hub", "Stream Analytics", "Databricks", "Azure ML", "React Native"],
+    gallery: [
+      {
+        src: "/images/projects/nirvband-stackup.jpg",
+        alt: "Exploded view of the NirvBand layers and electronics bill of materials",
+        ratio: "aspect-[7/6]",
+        caption: "mesh out, conductive knit in, electronics between",
+      },
+      {
+        src: "/images/projects/nirvband-planning.jpg",
+        alt: "Handwritten Azure pipeline and model planning on a desk",
+        ratio: "aspect-[4/3]",
+        caption: "the pipeline, before it was a diagram",
+      },
+    ],
     updates: [
       { date: "2026", note: "Pitching investors; applying to VC programs." },
       { date: "2025", note: "Azure pipeline and six-model architecture specified end to end." },
