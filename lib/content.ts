@@ -806,6 +806,7 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote: [
+      "I had the pleasure of mentoring Sathvika Nivasini during the 2023 Silicon Valley Challenge. This competition was an intensive App development marathon with multiple competitive elimination phases, including initial submissions, mentorship selection, active product development, and presentation cuts.",
       "Out of an extensive pool of over 11,000 entries internationally, Sathvika Nivasini flawlessly navigated every phase to emerge as 1 of only 7 final winners in her cohort. While the in person Silicon Valley showcase was altered due to travel restrictions, she successfully adapted and presented her final App (Startup) directly to Silicon Valley venture capitalists online.",
       "What stood out to me was her initiative, creativity, technical ability and persistence. She approached her project like a true builder, taking an idea and turning it into something real. Her work then showed a maturity well beyond her age. I am confident she will bring the same drive, and I recommend her without hesitation.",
     ],

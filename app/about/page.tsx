@@ -379,7 +379,7 @@ export default function AboutPage() {
                     className="block overflow-hidden rounded-xl transition-opacity hover:opacity-90"
                     style={{ border: "1px solid var(--border)" }}
                   >
-                    <div className="relative aspect-[825/475] w-full">
+                    <div className="relative aspect-[755/437] w-full">
                       <Photo
                         src={t.screenshot}
                         alt={`LinkedIn recommendation from ${t.name}`}

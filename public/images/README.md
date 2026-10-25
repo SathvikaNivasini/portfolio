@@ -54,11 +54,14 @@ subject roughly centred and leave a little headroom.
 
 ## Still needed from you
 
-- A cover for the **Agentic AI Photobioreactor** case study — the only slot
-  still showing a placeholder. A screenshot of the live digital twin, or one
-  of its charts, would do it.
-- Which TEDx talk each stage photo belongs to, so the two talk cards can use
-  real images instead of placeholders.
-- Optional: **TEDx video links**, if the talks are online.
+Nothing outstanding — every slot on the site is filled.
+
+Two optional refinements:
+
+- Which TEDx talk the embedded video belongs to, so it can sit on that
+  talk's card instead of standing alone.
+- Higher-resolution originals for `speaking/tedx-stage.jpg` (387x387) and
+  `speaking/tedx-stage-wide.jpg` (411x302), if they exist in a camera roll.
+  They are fine at current size but cannot be enlarged.
 
 The VakShala app URL is set (`VAKSHALA_APP_URL` in `lib/content.ts`).
