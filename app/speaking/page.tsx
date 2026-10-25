@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Photo from "@/components/photo";
-import PhotoWall from "@/components/photo-wall";
 import Reveal from "@/components/reveal";
+import YouTube from "@/components/youtube";
 import Starfield from "@/components/starfield";
 import { honors, otherSide, talks } from "@/lib/content";
 
@@ -74,9 +74,9 @@ export default function SpeakingPage() {
                 <div className="relative aspect-[16/9] w-full overflow-hidden">
                   <Photo
                     src={`/images/speaking/${
-                      i === 0 ? "tedx-2026" : "tedx-2025"
+                      i === 0 ? "tedx-stage-wide" : "tedx-stage"
                     }.jpg`}
-                    alt={`${t.title} — ${t.venue}`}
+                    alt={`On the TEDx stage — ${t.venue}`}
                     hint={`photo or still from "${t.title}"`}
                     sizes="(max-width: 768px) 100vw, 32rem"
                   />
@@ -108,39 +108,43 @@ export default function SpeakingPage() {
         </div>
 
         <Reveal delay={200}>
-          <p className="eyebrow mt-14">From the TEDx stages</p>
-        </Reveal>
-        <div className="mt-6">
-          <PhotoWall
-            items={[
-              {
-                src: "/images/speaking/tedx-stage.jpg",
-                alt: "Speaking on the TEDx stage",
-                ratio: "aspect-square",
-              },
-              {
-                src: "/images/speaking/tedx-stage-wide.jpg",
-                alt: "Mid-talk on the TEDx stage",
-              },
-              {
-                src: "/images/speaking/chanakya-talk.jpg",
-                alt: "Speaking to an audience beside a slide quoting Chanakya",
-              },
-            ]}
-          />
-        </div>
-
-        <Reveal delay={260}>
-          <p className="margin-note mt-6 text-center text-xl">
-            want the video? drop the link and it embeds right here ↑
-          </p>
+          <div className="mt-16">
+            <p className="eyebrow">Watch</p>
+            <h2
+              className="font-display mt-3 text-2xl font-semibold sm:text-3xl"
+              style={{ color: "var(--text)" }}
+            >
+              Don&apos;t take my word for it.
+            </h2>
+            <p className="lede mt-3 max-w-xl">
+              Reading that someone can speak is not the same as watching them
+              do it.
+            </p>
+            <div className="mt-6">
+              <YouTube
+                id="QeEKP7kuBSw"
+                title="TEDx talk"
+                poster="/images/speaking/tedx-hero.jpg"
+              />
+            </div>
+            <p className="mt-3 text-xs" style={{ color: "var(--text-faint)" }}>
+              <a
+                href="https://youtu.be/QeEKP7kuBSw"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "var(--accent)" }}
+              >
+                Watch on YouTube ↗
+              </a>
+            </p>
+          </div>
         </Reveal>
       </section>
 
       {/* photo strip */}
       <section className="mx-auto mt-24 max-w-5xl px-4 sm:px-6">
         <Reveal>
-          <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
             {[
               {
                 f: "tedx-stage-wide.jpg",
@@ -159,6 +163,12 @@ export default function SpeakingPage() {
                 a: "Teaching a session in a classroom",
                 h: "teaching a workshop",
                 t: "tilt-l",
+              },
+              {
+                f: "chanakya-talk.jpg",
+                a: "Speaking to an audience beside a slide quoting Chanakya",
+                h: "teaching a session",
+                t: "tilt-r",
               },
               {
                 f: "nhs-certificates.jpg",

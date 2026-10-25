@@ -799,6 +799,8 @@ export type Testimonial = {
   title: string;
   relationship: string;
   date: string;
+  /** The recommendation as it appears on LinkedIn, shown as the receipt. */
+  screenshot?: string;
 };
 
 export const testimonials: Testimonial[] = [
@@ -812,6 +814,7 @@ export const testimonials: Testimonial[] = [
       "Project Manager and Program Lead, The Network (Rextone Digital Private Limited)",
     relationship: "Mentor, 2023 Silicon Valley Challenge",
     date: "October 2026",
+    screenshot: "/images/gallery/linkedin-recommendation.jpg",
   },
 ];
 

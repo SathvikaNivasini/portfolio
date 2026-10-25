@@ -368,6 +368,28 @@ export default function AboutPage() {
                   {t.relationship} · {t.date}
                 </p>
               </figcaption>
+
+              {t.screenshot && (
+                <div className="mt-7">
+                  <p className="eyebrow mb-3">As it appears on LinkedIn</p>
+                  <a
+                    href={profile.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block overflow-hidden rounded-xl transition-opacity hover:opacity-90"
+                    style={{ border: "1px solid var(--border)" }}
+                  >
+                    <div className="relative aspect-[825/475] w-full">
+                      <Photo
+                        src={t.screenshot}
+                        alt={`LinkedIn recommendation from ${t.name}`}
+                        hint="the LinkedIn recommendation screenshot"
+                        sizes="(max-width: 768px) 92vw, 44rem"
+                      />
+                    </div>
+                  </a>
+                </div>
+              )}
             </figure>
           </Reveal>
         ))}
