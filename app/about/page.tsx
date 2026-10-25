@@ -10,6 +10,7 @@ import {
   pillars,
   profile,
   skills,
+  testimonials,
 } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -293,6 +294,45 @@ export default function AboutPage() {
             </div>
           </Reveal>
         </div>
+      </section>
+
+      {/* ---------- what someone else says ---------- */}
+      <section className="mx-auto mt-24 max-w-3xl px-4 sm:px-6">
+        {testimonials.map((t) => (
+          <Reveal key={t.name}>
+            <figure className="panel relative p-8 sm:p-10">
+              <span
+                className="font-display absolute -top-5 left-7 text-6xl leading-none"
+                style={{ color: "var(--accent)", opacity: 0.35 }}
+                aria-hidden
+              >
+                &ldquo;
+              </span>
+              <blockquote className="prose-case">
+                {t.quote.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </blockquote>
+              <figcaption className="mt-6 border-t pt-5">
+                <p
+                  className="font-display text-lg font-semibold"
+                  style={{ color: "var(--text)" }}
+                >
+                  {t.name}
+                </p>
+                <p
+                  className="mt-1 text-sm leading-relaxed"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  {t.title}
+                </p>
+                <p className="mt-1.5 text-sm" style={{ color: "var(--accent)" }}>
+                  {t.relationship} · {t.date}
+                </p>
+              </figcaption>
+            </figure>
+          </Reveal>
+        ))}
       </section>
 
       {/* ---------- moments ---------- */}

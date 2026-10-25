@@ -96,6 +96,8 @@ export type Project = {
   next: string[];
   stack: string[];
   updates: Update[];
+  /** Optional build photos shown after the architecture section. */
+  gallery?: { src: string; alt: string; ratio?: string; caption?: string }[];
 };
 
 export const projects: Project[] = [
@@ -366,6 +368,14 @@ export const projects: Project[] = [
     updates: [
       { date: "2026", note: "Technical documentation and controller architecture published; deep agent in development." },
       { date: "2025", note: "Digital twin live; tabular agent trained over 864,000 transitions." },
+    ],
+    gallery: [
+      {
+        src: "/images/projects/pbr-prototype.jpg",
+        alt: "A vessel annotated with cardboard and aluminium lining options",
+        ratio: "aspect-square",
+        caption: "working out the vessel lining",
+      },
     ],
   },
   {
@@ -758,6 +768,28 @@ export const honors: Honor[] = [
   },
 ];
 
+export type Testimonial = {
+  quote: string[];
+  name: string;
+  title: string;
+  relationship: string;
+  date: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote: [
+      "Out of an extensive pool of over 11,000 entries internationally, Sathvika Nivasini flawlessly navigated every phase to emerge as 1 of only 7 final winners in her cohort. While the in person Silicon Valley showcase was altered due to travel restrictions, she successfully adapted and presented her final App (Startup) directly to Silicon Valley venture capitalists online.",
+      "What stood out to me was her initiative, creativity, technical ability and persistence. She approached her project like a true builder, taking an idea and turning it into something real. Her work then showed a maturity well beyond her age. I am confident she will bring the same drive, and I recommend her without hesitation.",
+    ],
+    name: "Nandini Handa, PMP",
+    title:
+      "Project Manager and Program Lead, The Network (Rextone Digital Private Limited)",
+    relationship: "Mentor, 2023 Silicon Valley Challenge",
+    date: "October 2026",
+  },
+];
+
 export type OtherSide = {
   title: string;
   body: string;
@@ -884,7 +916,6 @@ export const journal: JournalEntry[] = [
 export const profile = {
   name: "Sathvika Nivasini Bhaskar Chitra",
   short: "Sathvika Nivasini",
-  nickname: "Sathvi",
   roles: ["Builder", "Speaker", "Founder", "Researcher"],
   intro:
     "I build technology at the intersection of hardware, machine learning, health and entrepreneurship — with communication as the thread running through all of it.",

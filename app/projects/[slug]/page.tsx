@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Photo from "@/components/photo";
+import PhotoWall from "@/components/photo-wall";
 import Reveal from "@/components/reveal";
 import Starfield from "@/components/starfield";
 import {
@@ -275,6 +276,21 @@ export default async function ProjectPage({
             ))}
           </div>
         </Section>
+
+        {project.gallery && project.gallery.length > 0 && (
+          <Reveal>
+            <div className="mt-12">
+              <PhotoWall
+                items={project.gallery}
+                columns={
+                  project.gallery.length === 1
+                    ? "columns-1 max-w-sm"
+                    : "columns-2"
+                }
+              />
+            </div>
+          </Reveal>
+        )}
 
         <Section n="04" title="What went wrong">
           <p className="margin-note mb-5">

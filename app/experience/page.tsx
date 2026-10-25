@@ -78,11 +78,6 @@ export default function ExperiencePage() {
                   sizes="(max-width: 640px) 90vw, 36rem"
                 />
               </div>
-              <p className="mt-3 text-xs" style={{ color: "var(--text-faint)" }}>
-                Walking through a customer-engagement model on the whiteboard.
-                The company on the board is Contoso — Microsoft&apos;s standard
-                fictional example.
-              </p>
             </div>
 
             <figcaption className="margin-note mt-6">
@@ -204,9 +199,40 @@ export default function ExperiencePage() {
                 src: "/images/gallery/calculus-desk.jpg",
                 alt: "Calculus notes, a calculator and coffee",
               },
+              {
+                src: "/images/gallery/workspace.jpg",
+                alt: "A working desk mid-project",
+                ratio: "aspect-[3/4]",
+              },
             ]}
           />
         </div>
+
+        <Reveal>
+          <figure className="mt-16">
+            <p className="eyebrow">The Amazon placement</p>
+            <div
+              className="mt-4 overflow-hidden rounded-xl"
+              style={{ border: "1px solid var(--border)" }}
+            >
+              <div className="relative aspect-[3.5/1] w-full">
+                <Photo
+                  src="/images/gallery/amazon-offer.jpg"
+                  alt="Email confirming selection for the year-long Amazon internship placement for the 2025/2026 school year"
+                  hint="the Amazon placement email"
+                  sizes="(max-width: 768px) 95vw, 56rem"
+                />
+              </div>
+            </div>
+            <figcaption
+              className="mt-3 text-xs"
+              style={{ color: "var(--text-faint)" }}
+            >
+              Selected as 1 of 2 students from a school of 4,000+, through the
+              Practicum in Entrepreneurship course.
+            </figcaption>
+          </figure>
+        </Reveal>
 
         <Reveal delay={200}>
           <div className="panel mt-14 p-7">

@@ -34,12 +34,6 @@ export default function Home() {
                 <br />
                 Nivasini
               </h1>
-              <p
-                className="font-hand mt-2 text-3xl"
-                style={{ color: "var(--accent-warm)" }}
-              >
-                ( Sathvi ✦ )
-              </p>
             </Reveal>
 
             <Reveal delay={120}>

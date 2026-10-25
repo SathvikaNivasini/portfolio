@@ -122,6 +122,10 @@ export default function SpeakingPage() {
                 src: "/images/speaking/tedx-stage-wide.jpg",
                 alt: "Mid-talk on the TEDx stage",
               },
+              {
+                src: "/images/speaking/chanakya-talk.jpg",
+                alt: "Speaking to an audience beside a slide quoting Chanakya",
+              },
             ]}
           />
         </div>
