@@ -3,7 +3,7 @@ import Photo from "@/components/photo";
 import PhotoWall from "@/components/photo-wall";
 import Reveal from "@/components/reveal";
 import Starfield from "@/components/starfield";
-import { experience } from "@/lib/content";
+import { experience, press, suvidhaStats } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Inside the Industry",
@@ -207,6 +207,77 @@ export default function ExperiencePage() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal>
+          <div className="mt-16">
+            <p className="eyebrow">In the press</p>
+            <h2
+              className="font-display mt-3 text-2xl font-semibold sm:text-3xl"
+              style={{ color: "var(--text)" }}
+            >
+              The nonprofit work, covered.
+            </h2>
+            <p className="lede mt-3 max-w-2xl">
+              Three outlets covered Suvidha International Foundation&apos;s
+              expansion of its youth education programmes. Below is the part of
+              that work I did.
+            </p>
+
+            <dl className="mt-7 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              {suvidhaStats.map((s) => (
+                <div key={s.label} className="panel p-5">
+                  <dt
+                    className="font-display text-2xl font-semibold leading-none sm:text-3xl"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    {s.value}
+                  </dt>
+                  <dd
+                    className="mt-2.5 text-xs leading-snug"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    {s.label}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
+            <ul className="mt-5 space-y-3">
+              {press.map((a) => (
+                <li key={a.href}>
+                  <a
+                    href={a.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="panel panel-hover flex items-start justify-between gap-5 p-5"
+                  >
+                    <span>
+                      <span
+                        className="text-xs font-medium uppercase tracking-wider"
+                        style={{ color: "var(--accent)" }}
+                      >
+                        {a.outlet}
+                      </span>
+                      <span
+                        className="mt-1.5 block text-sm leading-snug"
+                        style={{ color: "var(--text)" }}
+                      >
+                        {a.headline}
+                      </span>
+                    </span>
+                    <span
+                      className="shrink-0 text-lg"
+                      style={{ color: "var(--accent)" }}
+                      aria-hidden
+                    >
+                      ↗
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
 
         <Reveal>
           <figure className="mt-16">

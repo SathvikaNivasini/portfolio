@@ -5,6 +5,8 @@ import Photo from "@/components/photo";
 import PhotoWall from "@/components/photo-wall";
 import Reveal from "@/components/reveal";
 import Starfield from "@/components/starfield";
+import VideoPlayer from "@/components/video-player";
+import YouTube from "@/components/youtube";
 import {
   getProject,
   pillars,
@@ -276,6 +278,31 @@ export default async function ProjectPage({
             ))}
           </div>
         </Section>
+
+        {project.videos && project.videos.length > 0 && (
+          <Section n="03b" title="See it running">
+            <div className="space-y-8">
+              {project.videos.map((v) =>
+                v.kind === "youtube" ? (
+                  <YouTube
+                    key={v.id}
+                    id={v.id!}
+                    title={v.title}
+                    poster={v.poster}
+                  />
+                ) : (
+                  <VideoPlayer
+                    key={v.src}
+                    src={v.src!}
+                    poster={v.poster}
+                    title={v.title}
+                    note={v.note}
+                  />
+                )
+              )}
+            </div>
+          </Section>
+        )}
 
         {project.gallery && project.gallery.length > 0 && (
           <Reveal>

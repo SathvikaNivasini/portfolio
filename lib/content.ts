@@ -98,6 +98,15 @@ export type Project = {
   updates: Update[];
   /** Optional build photos shown after the architecture section. */
   gallery?: { src: string; alt: string; ratio?: string; caption?: string }[];
+  /** Optional videos: a YouTube id, or a local file under /video. */
+  videos?: {
+    kind: "youtube" | "local";
+    id?: string;
+    src?: string;
+    poster: string;
+    title: string;
+    note?: string;
+  }[];
 };
 
 export const projects: Project[] = [
@@ -178,6 +187,21 @@ export const projects: Project[] = [
       "Publish the scoring rubric and the model's disagreement rate with human judges. If I am asking students to trust a number, I should show them how often it is wrong.",
     ],
     stack: ["React 18", "Vite", "Tailwind CSS", "Supabase", "Netlify", "Python", "scikit-learn", "wav2vec 2.0", "MiniLM"],
+    videos: [
+      {
+        kind: "youtube",
+        id: "v7cQRouG1nY",
+        poster: "/images/projects/vakshala-dev.jpg",
+        title: "VakShala — product demo",
+      },
+      {
+        kind: "local",
+        src: "/video/vakshala-pitch.mp4",
+        poster: "/video/vakshala-pitch.jpg",
+        title: "Pitching VakShala",
+        note: "Presenting VakShala to an audience. Two minutes, unedited.",
+      },
+    ],
     updates: [
       { date: "2026", note: "Global Silver Award at the International Youth AI Competition." },
       { date: "2026", note: "Multimodal v2 architecture finalized; on-device compression in design." },
@@ -502,6 +526,13 @@ export const projects: Project[] = [
         body: "I independently developed a counseling-ecosystem app for school administration — currently under review. It is the first real deliverable to the district client.",
       },
       {
+        // TODO(sathvika): expand this with what Grid Guardian actually does —
+        // the problem it solves for the district, the stack, and where it
+        // stands. The demo video is embedded below.
+        title: "Grid Guardian",
+        body: "A second independent build for Coppell ISD, demoed in the video below.",
+      },
+      {
         title: "The operating model",
         body: "Free tech solutions for real district problems, built by students who get hands-on work with real stakeholders and deadlines.",
       },
@@ -514,12 +545,21 @@ export const projects: Project[] = [
       "Conceived, designed, secured a faculty sponsor, and obtained official club approval.",
       "120+ students recruited across about 12 departments.",
       "A counseling-ecosystem app independently developed and under review by school administration.",
+      "Grid Guardian, a second independent build for the district.",
     ],
     next: [
       "Ship the counseling ecosystem app through review and into actual use by counselors.",
       "Get a second cohort running the departments so the structure, not the founder, is what holds.",
     ],
     stack: ["Full stack", "Product management", "Stakeholder requirements", "Org design"],
+    videos: [
+      {
+        kind: "youtube",
+        id: "1XUz6l_5zco",
+        poster: "/images/gallery/team-lab.jpg",
+        title: "Grid Guardian — demo",
+      },
+    ],
     updates: [
       { date: "2026", note: "Counseling-ecosystem app under administrative review." },
       { date: "2026", note: "Founded; faculty sponsor and club approval secured; 120+ members recruited." },
@@ -791,6 +831,45 @@ export const honors: Honor[] = [
     scope: "School",
     year: "May 2025",
   },
+];
+
+export type PressItem = {
+  outlet: string;
+  headline: string;
+  href: string;
+};
+
+/**
+ * Coverage of Suvidha International Foundation's programmes. These
+ * articles are about the organisation; the work described below is the
+ * part I did within it.
+ */
+export const press: PressItem[] = [
+  {
+    outlet: "News India Times",
+    headline:
+      "California-based Suvidha International Foundation expands youth education and leadership initiatives",
+    href: "https://newsindiatimes.com/california-based-suvidha-international-foundation-expands-youth-education-and-leadership-initiatives/",
+  },
+  {
+    outlet: "New India Abroad",
+    headline:
+      "California nonprofit expands youth education with Global AI Hackathon",
+    href: "https://www.newindiaabroad.com/english/indian-diaspora-community/california-nonprofit-expands-youth-education-with-global-ai-hackathon",
+  },
+  {
+    outlet: "NRI2NRI",
+    headline:
+      "Suvidha International Foundation expands youth-led education through summer camps and Global AI Hackathon",
+    href: "https://nri2nri.com/suvidha-international-foundation-expands-youth-led-education-through-summer-camps-and-global-ai-hackathon/",
+  },
+];
+
+export const suvidhaStats = [
+  { value: "240+", label: "Students taught across 9 camps" },
+  { value: "7+", label: "Public speaking camps led" },
+  { value: "150+", label: "Participants in the Global AI Hackathon" },
+  { value: "$10,000+", label: "Raised for people in need" },
 ];
 
 export type Testimonial = {

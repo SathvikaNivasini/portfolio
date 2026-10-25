@@ -255,9 +255,9 @@ export default function Home() {
               className="font-display mx-auto mt-3 max-w-2xl text-center text-4xl font-semibold sm:text-5xl"
               style={{ color: "var(--text)" }}
             >
-              Seven years of
+              7+ years
               <br />
-              learning to speak.
+              of speaking.
             </h2>
           </Reveal>
 
