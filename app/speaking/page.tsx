@@ -196,7 +196,7 @@ export default function SpeakingPage() {
 
         <Reveal delay={150}>
           <p className="margin-note mt-10 text-center text-2xl">
-            &ldquo;Communication is currency.&rdquo; ✦
+            still learning, every time I speak ✦
           </p>
         </Reveal>
       </section>
@@ -295,7 +295,7 @@ export default function SpeakingPage() {
             className="font-display mt-3 text-3xl font-semibold sm:text-4xl"
             style={{ color: "var(--text)" }}
           >
-            The record.
+            Awards and recognition.
           </h2>
         </Reveal>
 

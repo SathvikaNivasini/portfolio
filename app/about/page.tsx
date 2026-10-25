@@ -65,10 +65,10 @@ export default function AboutPage() {
                   Communication became part of my technical work because
                   engineering that nobody can understand does not help anyone.
                 </strong>{" "}
-                I have watched brilliant solutions die in rooms where the
-                engineer could not explain the stakes, and watched mediocre ones
-                win because someone could. So I learned to do both — and then
-                built a company teaching other people to do both.
+                In competitions and classrooms I kept noticing that the better
+                idea did not always win — the clearer explanation usually did.
+                So I worked on both, and eventually started coaching other
+                students in the half that gets skipped.
               </p>
             </div>
           </Reveal>
@@ -506,7 +506,7 @@ export default function AboutPage() {
       <section className="mx-auto mt-20 max-w-3xl px-4 text-center sm:px-6">
         <Reveal>
           <p className="margin-note text-2xl">
-            If I&apos;m not challenging myself, I&apos;m standing still. ♡
+            still figuring a lot of it out ♡
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <Link

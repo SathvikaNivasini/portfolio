@@ -104,7 +104,7 @@ export const projects: Project[] = [
   {
     slug: "vakshala",
     name: "VakShala",
-    tagline: "A communication coach that scores the thing everyone says can't be scored.",
+    tagline: "A coaching platform, and a model that scores communication across seven dimensions.",
     role: "Founder & CEO",
     years: "2024 — Present",
     status: "live",
@@ -399,7 +399,7 @@ export const projects: Project[] = [
   {
     slug: "top-the-graph",
     name: "Top The Graph",
-    tagline: "Built in ninth grade, after surveying 600 students about what school was doing to them.",
+    tagline: "Built in ninth grade, after surveying 600 students about stress and burnout.",
     role: "Founder & Lead Developer",
     years: "Grade 9",
     status: "archive",
@@ -665,7 +665,7 @@ export const milestones: Milestone[] = [
   },
   {
     when: "Sep 2024",
-    title: "Ranked #1 globally",
+    title: "Toastmasters world championship",
     body: "Global Winner of the Toastmasters International Public Speaking Championship, humorous category, Global Groups 2024–25. Seven years of Toastmasters and NSDA behind it: 7× Best Speaker, 11× Best Impromptu, 14× Top Evaluator. Earlier that year I was a Top 6 finalist at the Kerala Public Speaking State Championship.",
     pillar: "communication",
     images: [

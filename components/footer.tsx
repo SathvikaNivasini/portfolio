@@ -39,8 +39,8 @@ export default function Footer() {
               worth building.
             </p>
             <p className="lede mt-3 max-w-sm text-[0.95rem]">
-              I&apos;m always open to a conversation — about engineering,
-              communication, a collaboration, or admissions.
+              I&apos;m happy to talk about engineering, communication, or
+              working on something together.
             </p>
             <div className="mt-5 flex flex-wrap gap-2.5">
               <a

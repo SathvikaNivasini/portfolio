@@ -31,8 +31,7 @@ export default function ProjectsPage() {
             Each project opens into a full case study: the problem, the
             decisions, the architecture, the failures, where it stands, and what
             I&apos;d do next. Every project is marked with how finished it
-            actually is — because a portfolio of only finished things is a
-            portfolio of someone who stopped learning.
+            actually is, because most of them are still in progress.
           </p>
         </Reveal>
 

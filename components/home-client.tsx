@@ -53,7 +53,7 @@ export default function HomeClient() {
               className="font-display mt-3 text-4xl font-semibold sm:text-5xl"
               style={{ color: "var(--text)" }}
             >
-              Ideas into <span className="underline-sketch">impact</span>
+              What I&apos;ve <span className="underline-sketch">built</span>
             </h2>
             <p className="lede mt-5 max-w-lg">
               Five projects across education, mental health, sustainability and

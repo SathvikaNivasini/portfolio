@@ -294,7 +294,7 @@ export default async function ProjectPage({
 
         <Section n="04" title="What went wrong">
           <p className="margin-note mb-5">
-            the part most portfolios leave out ↓
+            the part I had to learn from ↓
           </p>
           <ul className="space-y-4">
             {project.failures.map((f, i) => (
