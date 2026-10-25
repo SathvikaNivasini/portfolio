@@ -179,11 +179,21 @@ export default function AboutPage() {
                 </p>
 
                 {m.images && (
-                  <div className="mt-5 grid max-w-md grid-cols-2 gap-3">
+                  <div
+                    className={`mt-5 grid gap-3 ${
+                      m.images.length === 1
+                        ? "max-w-[15rem] grid-cols-1"
+                        : "max-w-md grid-cols-2"
+                    }`}
+                  >
                     {m.images.map((img) => (
                       <div
                         key={img.src}
-                        className="relative aspect-[4/3] overflow-hidden rounded-lg"
+                        className={`relative overflow-hidden rounded-lg ${
+                          m.images!.length === 1
+                            ? "aspect-square"
+                            : "aspect-[4/3]"
+                        }`}
                         style={{ border: "1px solid var(--border)" }}
                       >
                         <Photo

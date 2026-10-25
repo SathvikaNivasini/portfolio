@@ -611,8 +611,15 @@ export const milestones: Milestone[] = [
   {
     when: "2015 — 2024",
     title: "Kendriya Vidyalaya, India",
-    body: "An 'A' student, class representative, twice a Star Student. Nineteen times a keynote speaker before I ever thought of myself as someone who speaks. This is also where I started chanting Sanskrit — 600+ verses, still going.",
+    body: "An 'A' student, class representative, twice a Star Student. Nineteen times a keynote speaker before I ever thought of myself as someone who speaks. This is also where I started chanting Sanskrit — 600+ verses, still going. And somewhere in there, the first thing I remember making with my hands.",
     pillar: "communication",
+    images: [
+      {
+        src: "/images/gallery/young-builder.jpg",
+        alt: "Building a hardware project as a young student in India",
+        hint: "you, young, building something",
+      },
+    ],
   },
   {
     when: "Age 11",
