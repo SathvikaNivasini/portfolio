@@ -43,7 +43,7 @@ export default function ExperiencePage() {
 
         <Reveal delay={120}>
           <figure className="mt-12">
-            <div className="grid max-w-2xl gap-5 sm:grid-cols-[0.8fr_1fr]">
+            <div className="grid max-w-xl gap-6 sm:grid-cols-2">
               <div className="polaroid tilt-l relative aspect-[3/4]">
                 <div className="relative h-full w-full overflow-hidden">
                   <Photo
@@ -54,13 +54,13 @@ export default function ExperiencePage() {
                   />
                 </div>
               </div>
-              <div className="polaroid tilt-r relative aspect-[4/3] self-center">
+              <div className="polaroid tilt-r relative aspect-[3/4]">
                 <div className="relative h-full w-full overflow-hidden">
                   <Photo
-                    src="/images/gallery/microsoft-innovation-hub.jpg"
-                    alt="Sathvika at the Microsoft Innovation Hub"
+                    src="/images/gallery/innovation-hub-wall.jpg"
+                    alt="Sathvika at the Microsoft Innovation Hub wall"
                     hint="the Innovation Hub"
-                    sizes="(max-width: 640px) 85vw, 22rem"
+                    sizes="(max-width: 640px) 85vw, 18rem"
                   />
                 </div>
               </div>
