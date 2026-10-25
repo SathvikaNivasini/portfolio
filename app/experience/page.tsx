@@ -86,6 +86,64 @@ export default function ExperiencePage() {
           </figure>
         </Reveal>
 
+        <Reveal>
+          <div className="mt-16">
+            <p className="eyebrow">From the terms</p>
+            <h2
+              className="font-display mt-3 text-2xl font-semibold sm:text-3xl"
+              style={{ color: "var(--text)" }}
+            >
+              The people and the rooms.
+            </h2>
+          </div>
+        </Reveal>
+
+        <div className="mt-8">
+          <PhotoWall
+            items={[
+              {
+                src: "/images/gallery/microsoft-innovation-hub.jpg",
+                alt: "At the Microsoft Innovation Hub",
+              },
+              {
+                src: "/images/gallery/ms-colleague-1.jpg",
+                alt: "With a Microsoft colleague",
+                ratio: "aspect-[3/4]",
+              },
+              {
+                src: "/images/gallery/ms-colleague-2.jpg",
+                alt: "With a Microsoft colleague",
+              },
+              {
+                src: "/images/gallery/ms-colleague-3.jpg",
+                alt: "With a Microsoft colleague",
+              },
+              {
+                src: "/images/gallery/ms-colleague-4.jpg",
+                alt: "With a Microsoft colleague",
+              },
+              {
+                src: "/images/gallery/visionet-team.jpg",
+                alt: "With the team at a Microsoft event",
+                ratio: "aspect-[3/4]",
+              },
+              {
+                src: "/images/gallery/team-lab.jpg",
+                alt: "With teammates in a computer lab",
+              },
+              {
+                src: "/images/gallery/calculus-desk.jpg",
+                alt: "Calculus notes, a calculator and coffee",
+              },
+              {
+                src: "/images/gallery/workspace.jpg",
+                alt: "A working desk mid-project",
+                ratio: "aspect-[3/4]",
+              },
+            ]}
+          />
+        </div>
+
         <div className="mt-14 space-y-5">
           {experience.map((role, i) => (
             <Reveal key={`${role.org}-${role.title}`} delay={i * 70}>
@@ -148,64 +206,6 @@ export default function ExperiencePage() {
               </article>
             </Reveal>
           ))}
-        </div>
-
-        <Reveal>
-          <div className="mt-20">
-            <p className="eyebrow">From the terms</p>
-            <h2
-              className="font-display mt-3 text-2xl font-semibold sm:text-3xl"
-              style={{ color: "var(--text)" }}
-            >
-              The people and the rooms.
-            </h2>
-          </div>
-        </Reveal>
-
-        <div className="mt-8">
-          <PhotoWall
-            items={[
-              {
-                src: "/images/gallery/microsoft-innovation-hub.jpg",
-                alt: "At the Microsoft Innovation Hub",
-              },
-              {
-                src: "/images/gallery/ms-colleague-1.jpg",
-                alt: "With a Microsoft colleague",
-                ratio: "aspect-[3/4]",
-              },
-              {
-                src: "/images/gallery/ms-colleague-2.jpg",
-                alt: "With a Microsoft colleague",
-              },
-              {
-                src: "/images/gallery/ms-colleague-3.jpg",
-                alt: "With a Microsoft colleague",
-              },
-              {
-                src: "/images/gallery/ms-colleague-4.jpg",
-                alt: "With a Microsoft colleague",
-              },
-              {
-                src: "/images/gallery/visionet-team.jpg",
-                alt: "With the team at a Microsoft event",
-                ratio: "aspect-[3/4]",
-              },
-              {
-                src: "/images/gallery/team-lab.jpg",
-                alt: "With teammates in a computer lab",
-              },
-              {
-                src: "/images/gallery/calculus-desk.jpg",
-                alt: "Calculus notes, a calculator and coffee",
-              },
-              {
-                src: "/images/gallery/workspace.jpg",
-                alt: "A working desk mid-project",
-                ratio: "aspect-[3/4]",
-              },
-            ]}
-          />
         </div>
 
         <Reveal>

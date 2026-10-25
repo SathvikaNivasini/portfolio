@@ -137,6 +137,59 @@ export default function SpeakingPage() {
         </Reveal>
       </section>
 
+      {/* photo strip */}
+      <section className="mx-auto mt-24 max-w-5xl px-4 sm:px-6">
+        <Reveal>
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
+            {[
+              {
+                f: "tedx-stage-wide.jpg",
+                a: "Mid-talk on the TEDx stage",
+                h: "you mid-speech, on stage",
+                t: "tilt-l",
+              },
+              {
+                f: "stage-award.jpg",
+                a: "Shaking hands on stage at an awards ceremony",
+                h: "with an audience or trophy",
+                t: "tilt-r",
+              },
+              {
+                f: "teaching.jpg",
+                a: "Teaching a session in a classroom",
+                h: "teaching a workshop",
+                t: "tilt-l",
+              },
+              {
+                f: "nhs-certificates.jpg",
+                a: "Holding certificates at Coppell High School",
+                h: "certificates in hand",
+                t: "tilt-r",
+              },
+            ].map((p) => (
+              <div
+                key={p.f}
+                className={`polaroid ${p.t} relative`}
+              >
+                <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  <Photo
+                    src={`/images/speaking/${p.f}`}
+                    alt={p.a}
+                    hint={p.h}
+                    sizes="(max-width: 640px) 45vw, 16rem"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
+        <Reveal delay={150}>
+          <p className="margin-note mt-10 text-center text-2xl">
+            &ldquo;Communication is currency.&rdquo; ✦
+          </p>
+        </Reveal>
+      </section>
       {/* four facets */}
       <section className="mx-auto mt-24 max-w-5xl px-4 sm:px-6">
         <Reveal>
@@ -228,59 +281,6 @@ export default function SpeakingPage() {
         </div>
       </section>
 
-      {/* photo strip */}
-      <section className="mx-auto mt-24 max-w-5xl px-4 sm:px-6">
-        <Reveal>
-          <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
-            {[
-              {
-                f: "tedx-stage-wide.jpg",
-                a: "Mid-talk on the TEDx stage",
-                h: "you mid-speech, on stage",
-                t: "tilt-l",
-              },
-              {
-                f: "stage-award.jpg",
-                a: "Shaking hands on stage at an awards ceremony",
-                h: "with an audience or trophy",
-                t: "tilt-r",
-              },
-              {
-                f: "teaching.jpg",
-                a: "Teaching a session in a classroom",
-                h: "teaching a workshop",
-                t: "tilt-l",
-              },
-              {
-                f: "nhs-certificates.jpg",
-                a: "Holding certificates at Coppell High School",
-                h: "certificates in hand",
-                t: "tilt-r",
-              },
-            ].map((p) => (
-              <div
-                key={p.f}
-                className={`polaroid ${p.t} relative`}
-              >
-                <div className="relative aspect-[4/5] w-full overflow-hidden">
-                  <Photo
-                    src={`/images/speaking/${p.f}`}
-                    alt={p.a}
-                    hint={p.h}
-                    sizes="(max-width: 640px) 45vw, 16rem"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal delay={150}>
-          <p className="margin-note mt-10 text-center text-2xl">
-            &ldquo;Communication is currency.&rdquo; ✦
-          </p>
-        </Reveal>
-      </section>
     </div>
   );
 }

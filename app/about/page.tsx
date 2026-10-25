@@ -132,6 +132,72 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ---------- the circuits ---------- */}
+      <section className="mx-auto mt-24 max-w-5xl px-4 sm:px-6">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+          <Reveal>
+            <p className="eyebrow">Before any of it</p>
+            <h2
+              className="font-display mt-3 text-3xl font-semibold sm:text-4xl"
+              style={{ color: "var(--text)" }}
+            >
+              A circuit, a notebook,
+              <br />
+              and an LED that{" "}
+              <span className="underline-sketch">finally lit</span>
+            </h2>
+            <div className="prose-case mt-6">
+              <p>
+                Long before Azure pipelines and neural networks, this is what
+                engineering actually looked like: a breadboard, a 9V battery,
+                and a circuit diagram worked out by hand on ruled paper next to
+                it.
+              </p>
+              <p>
+                I still think this is the honest version of the job. Most of it
+                is not working, and then a small blue light comes on and you
+                understand something you did not understand an hour ago.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={140}>
+            <div className="grid grid-cols-2 gap-5">
+              <Clip
+                src="/video/circuit-1.mp4"
+                poster="/video/circuit-1.jpg"
+                label="A breadboard circuit with a blue LED lit, beside handwritten circuit notes"
+                caption="it works ♡"
+                tilt="tilt-l"
+              />
+              <Clip
+                src="/video/circuit-2.mp4"
+                poster="/video/circuit-2.jpg"
+                label="A close view of the lit LED on the breadboard"
+              />
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal delay={200}>
+          <div className="mt-8 max-w-md">
+            <figure className="polaroid polaroid-tight tilt-l relative">
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <Photo
+                  src="/images/gallery/breadboard.jpg"
+                  alt="A breadboard wired with a potentiometer, resistors, capacitor and two LEDs"
+                  hint="the breadboard, wired up"
+                  sizes="(max-width: 640px) 90vw, 28rem"
+                />
+              </div>
+              <figcaption className="margin-note mt-3 text-center">
+                wired by hand, every time
+              </figcaption>
+            </figure>
+          </div>
+        </Reveal>
+      </section>
+
       {/* ---------- timeline ---------- */}
       <section className="mx-auto mt-24 max-w-4xl px-4 sm:px-6">
         <Reveal>
@@ -211,6 +277,100 @@ export default function AboutPage() {
             </Reveal>
           ))}
         </ol>
+      </section>
+
+      {/* ---------- moments ---------- */}
+      <section className="mx-auto mt-24 max-w-5xl px-4 sm:px-6">
+        <Reveal>
+          <p className="eyebrow">Moments</p>
+          <h2
+            className="font-display mt-3 text-3xl font-semibold sm:text-4xl"
+            style={{ color: "var(--text)" }}
+          >
+            The <span className="underline-sketch">in-between</span> bits
+          </h2>
+          <p className="lede mt-4 max-w-xl">
+            Not everything fits a timeline. These are the ones I kept.
+          </p>
+        </Reveal>
+
+        <div className="mt-10">
+          <PhotoWall
+            items={[
+              {
+                src: "/images/gallery/india-to-texas.jpg",
+                alt: "City lights from an airplane window at night",
+                ratio: "aspect-[3/4]",
+                caption: "ten thousand miles, one dream",
+              },
+              {
+                src: "/images/gallery/wings-portrait.jpg",
+                alt: "At a Wings of Empowerment event",
+                caption: "wings of empowerment",
+              },
+              {
+                src: "/images/gallery/wings-cards.jpg",
+                alt: "Hand-made encouragement cards laid out on a table",
+                caption: "every card written by hand",
+              },
+              {
+                src: "/images/gallery/kerala-championship.jpg",
+                alt: "On stage at the Kerala Championship of Public Speaking",
+                ratio: "aspect-[3/4]",
+                caption: "Kerala championship finals",
+              },
+              {
+                src: "/images/gallery/goggles.jpg",
+                alt: "Wearing safety goggles in a lab",
+                caption: "goggles on ♡",
+              },
+              {
+                src: "/images/gallery/offduty.jpg",
+                alt: "Off duty, at a go-kart track",
+                caption: "off duty",
+              },
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* ---------- what someone else says ---------- */}
+      <section className="mx-auto mt-24 max-w-3xl px-4 sm:px-6">
+        {testimonials.map((t) => (
+          <Reveal key={t.name}>
+            <figure className="panel relative p-8 sm:p-10">
+              <span
+                className="font-display absolute -top-5 left-7 text-6xl leading-none"
+                style={{ color: "var(--accent)", opacity: 0.35 }}
+                aria-hidden
+              >
+                &ldquo;
+              </span>
+              <blockquote className="prose-case">
+                {t.quote.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </blockquote>
+              <figcaption className="mt-6 border-t pt-5">
+                <p
+                  className="font-display text-lg font-semibold"
+                  style={{ color: "var(--text)" }}
+                >
+                  {t.name}
+                </p>
+                <p
+                  className="mt-1 text-sm leading-relaxed"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  {t.title}
+                </p>
+                <p className="mt-1.5 text-sm" style={{ color: "var(--accent)" }}>
+                  {t.relationship} · {t.date}
+                </p>
+              </figcaption>
+            </figure>
+          </Reveal>
+        ))}
       </section>
 
       {/* ---------- education + skills ---------- */}
@@ -304,166 +464,6 @@ export default function AboutPage() {
               </ul>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ---------- the circuits ---------- */}
-      <section className="mx-auto mt-24 max-w-5xl px-4 sm:px-6">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-          <Reveal>
-            <p className="eyebrow">Before any of it</p>
-            <h2
-              className="font-display mt-3 text-3xl font-semibold sm:text-4xl"
-              style={{ color: "var(--text)" }}
-            >
-              A circuit, a notebook,
-              <br />
-              and an LED that{" "}
-              <span className="underline-sketch">finally lit</span>
-            </h2>
-            <div className="prose-case mt-6">
-              <p>
-                Long before Azure pipelines and neural networks, this is what
-                engineering actually looked like: a breadboard, a 9V battery,
-                and a circuit diagram worked out by hand on ruled paper next to
-                it.
-              </p>
-              <p>
-                I still think this is the honest version of the job. Most of it
-                is not working, and then a small blue light comes on and you
-                understand something you did not understand an hour ago.
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={140}>
-            <div className="grid grid-cols-2 gap-5">
-              <Clip
-                src="/video/circuit-1.mp4"
-                poster="/video/circuit-1.jpg"
-                label="A breadboard circuit with a blue LED lit, beside handwritten circuit notes"
-                caption="it works ♡"
-                tilt="tilt-l"
-              />
-              <Clip
-                src="/video/circuit-2.mp4"
-                poster="/video/circuit-2.jpg"
-                label="A close view of the lit LED on the breadboard"
-              />
-            </div>
-          </Reveal>
-        </div>
-
-        <Reveal delay={200}>
-          <div className="mt-8 max-w-md">
-            <figure className="polaroid polaroid-tight tilt-l relative">
-              <div className="relative aspect-[4/3] w-full overflow-hidden">
-                <Photo
-                  src="/images/gallery/breadboard.jpg"
-                  alt="A breadboard wired with a potentiometer, resistors, capacitor and two LEDs"
-                  hint="the breadboard, wired up"
-                  sizes="(max-width: 640px) 90vw, 28rem"
-                />
-              </div>
-              <figcaption className="margin-note mt-3 text-center">
-                wired by hand, every time
-              </figcaption>
-            </figure>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ---------- what someone else says ---------- */}
-      <section className="mx-auto mt-24 max-w-3xl px-4 sm:px-6">
-        {testimonials.map((t) => (
-          <Reveal key={t.name}>
-            <figure className="panel relative p-8 sm:p-10">
-              <span
-                className="font-display absolute -top-5 left-7 text-6xl leading-none"
-                style={{ color: "var(--accent)", opacity: 0.35 }}
-                aria-hidden
-              >
-                &ldquo;
-              </span>
-              <blockquote className="prose-case">
-                {t.quote.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </blockquote>
-              <figcaption className="mt-6 border-t pt-5">
-                <p
-                  className="font-display text-lg font-semibold"
-                  style={{ color: "var(--text)" }}
-                >
-                  {t.name}
-                </p>
-                <p
-                  className="mt-1 text-sm leading-relaxed"
-                  style={{ color: "var(--text-muted)" }}
-                >
-                  {t.title}
-                </p>
-                <p className="mt-1.5 text-sm" style={{ color: "var(--accent)" }}>
-                  {t.relationship} · {t.date}
-                </p>
-              </figcaption>
-            </figure>
-          </Reveal>
-        ))}
-      </section>
-
-      {/* ---------- moments ---------- */}
-      <section className="mx-auto mt-24 max-w-5xl px-4 sm:px-6">
-        <Reveal>
-          <p className="eyebrow">Moments</p>
-          <h2
-            className="font-display mt-3 text-3xl font-semibold sm:text-4xl"
-            style={{ color: "var(--text)" }}
-          >
-            The <span className="underline-sketch">in-between</span> bits
-          </h2>
-          <p className="lede mt-4 max-w-xl">
-            Not everything fits a timeline. These are the ones I kept.
-          </p>
-        </Reveal>
-
-        <div className="mt-10">
-          <PhotoWall
-            items={[
-              {
-                src: "/images/gallery/india-to-texas.jpg",
-                alt: "City lights from an airplane window at night",
-                ratio: "aspect-[3/4]",
-                caption: "ten thousand miles, one dream",
-              },
-              {
-                src: "/images/gallery/wings-portrait.jpg",
-                alt: "At a Wings of Empowerment event",
-                caption: "wings of empowerment",
-              },
-              {
-                src: "/images/gallery/wings-cards.jpg",
-                alt: "Hand-made encouragement cards laid out on a table",
-                caption: "every card written by hand",
-              },
-              {
-                src: "/images/gallery/kerala-championship.jpg",
-                alt: "On stage at the Kerala Championship of Public Speaking",
-                ratio: "aspect-[3/4]",
-                caption: "Kerala championship finals",
-              },
-              {
-                src: "/images/gallery/goggles.jpg",
-                alt: "Wearing safety goggles in a lab",
-                caption: "goggles on ♡",
-              },
-              {
-                src: "/images/gallery/offduty.jpg",
-                alt: "Off duty, at a go-kart track",
-                caption: "off duty",
-              },
-            ]}
-          />
         </div>
       </section>
 
