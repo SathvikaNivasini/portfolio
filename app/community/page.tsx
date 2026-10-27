@@ -121,7 +121,7 @@ export default function CommunityPage() {
             <p className="eyebrow">In the press</p>
             <p className="lede mt-3 max-w-2xl">
               Three outlets covered the foundation&apos;s expansion of these
-              programmes.
+              programmes, and my work is featured in each.
             </p>
             <ul className="mt-5 space-y-3">
               {press.map((a) => (
