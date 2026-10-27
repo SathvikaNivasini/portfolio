@@ -723,8 +723,8 @@ export const milestones: Milestone[] = [
   },
   {
     when: "Sep 2024",
-    title: "Global Groups Public Speaking Championship",
-    body: "Global Winner, Humorous category, Global Groups Public Speaking Championship 2024–25. Seven years of Toastmasters and NSDA behind it: 7× Best Speaker, 11× Best Impromptu, 14× Top Evaluator. Earlier that year I was a Top 6 finalist at the Kerala Public Speaking State Championship.",
+    title: "Toastmasters International — Global Groups Championship",
+    body: "Global Winner, Humorous category, Toastmasters International Global Groups Public Speaking Championship 2024–25. Seven years of Toastmasters and NSDA behind it: 7× Best Speaker, 11× Best Impromptu, 14× Top Evaluator. Earlier that year I was a Top 6 finalist at the Kerala Public Speaking State Championship.",
     pillar: "communication",
     images: [
       {
@@ -787,7 +787,7 @@ export type Honor = {
 
 export const honors: Honor[] = [
   {
-    title: "Global Winner, Global Groups Public Speaking Championship",
+    title: "Global Winner, Toastmasters International Global Groups Public Speaking Championship",
     detail: "Title winner, Humorous category, Global Groups 2024–25.",
     scope: "International",
     year: "Sep 2024",
@@ -957,7 +957,7 @@ export type OtherSide = {
 export const otherSide: OtherSide[] = [
   {
     title: "Competitive speaking",
-    body: "Seven years of Toastmasters and the National Speech & Debate Association.",
+    body: "Seven years of Toastmasters International and the National Speech & Debate Association.",
     detail: [
       "7× Best Speaker, 11× Best Impromptu Speaker, 14× Top Evaluator at Toastmasters.",
       "Named Gavelier of the Day (May 2024) for leadership and trust; ran key session responsibilities and overall coordination.",

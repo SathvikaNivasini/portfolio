@@ -34,9 +34,9 @@ export default function CommunityPage() {
               className="font-display mt-3 text-[clamp(2.4rem,6vw,3.8rem)] font-semibold leading-[1.05]"
               style={{ color: "var(--text)" }}
             >
-              The part I don&apos;t
+              Teaching what
               <br />
-              charge for.
+              I was taught.
             </h1>
             <p className="lede mt-6 max-w-2xl">
               Communication coaching is expensive, and the students who need it
