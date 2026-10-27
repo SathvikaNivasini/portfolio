@@ -723,8 +723,8 @@ export const milestones: Milestone[] = [
   },
   {
     when: "Sep 2024",
-    title: "Toastmasters world championship",
-    body: "Global Winner of the Toastmasters International Public Speaking Championship, humorous category, Global Groups 2024–25. Seven years of Toastmasters and NSDA behind it: 7× Best Speaker, 11× Best Impromptu, 14× Top Evaluator. Earlier that year I was a Top 6 finalist at the Kerala Public Speaking State Championship.",
+    title: "Global Groups Public Speaking Championship",
+    body: "Global Winner, Humorous category, Global Groups Public Speaking Championship 2024–25. Seven years of Toastmasters and NSDA behind it: 7× Best Speaker, 11× Best Impromptu, 14× Top Evaluator. Earlier that year I was a Top 6 finalist at the Kerala Public Speaking State Championship.",
     pillar: "communication",
     images: [
       {
@@ -787,8 +787,8 @@ export type Honor = {
 
 export const honors: Honor[] = [
   {
-    title: "Global Winner, Toastmasters International Public Speaking Championship",
-    detail: "Title winner, Humorous category, Global Groups 2024–25. Ranked #1 globally.",
+    title: "Global Winner, Global Groups Public Speaking Championship",
+    detail: "Title winner, Humorous category, Global Groups 2024–25.",
     scope: "International",
     year: "Sep 2024",
   },
@@ -888,6 +888,38 @@ export const suvidhaStats = [
   { value: "7+", label: "Public speaking camps led" },
   { value: "150+", label: "Participants in the Global AI Hackathon" },
   { value: "$10,000+", label: "Raised for people in need" },
+];
+
+/** The free-access work, which the community page is built from. */
+export const communityPrograms = [
+  {
+    slug: "vakshala-community",
+    name: "VakShala for Community",
+    role: "Founder",
+    period: "2024 — Present",
+    summary:
+      "The nonprofit arm of VakShala. Free live communication workshops for schools that would not otherwise pay for communication training, and free access to the app for anyone who attends one.",
+    points: [
+      "5+ international schools signed for 7k+ learners — New Look School, KARE School, KV Minambakkam, and an independent community workshop for students in Folsom, California.",
+      "5+ more schools currently in discussion.",
+      "Anyone who attends a community workshop gets the full app free, permanently.",
+    ],
+    href: "/projects/vakshala",
+  },
+  {
+    slug: "top-the-graph-community",
+    name: "Top The Graph",
+    role: "Founder & Lead Developer",
+    period: "Grade 9",
+    summary:
+      "A student mental wellness initiative built after surveying 600+ students about stress and burnout, with 20+ mentors in music, yoga, dance, chanting and Ayurveda shaping the curriculum.",
+    points: [
+      "25+ sessions led across age groups on stress, burnout and balance.",
+      "900+ students used the emotional-wellness web app.",
+      "No longer active — its findings became NirvBand.",
+    ],
+    href: "/projects/top-the-graph",
+  },
 ];
 
 export type Testimonial = {

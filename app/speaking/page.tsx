@@ -8,7 +8,7 @@ import { honors, otherSide, talks } from "@/lib/content";
 export const metadata: Metadata = {
   title: "The Other Side",
   description:
-    "TEDx talks, a Toastmasters world championship, writing, teaching, and Carnatic vocals.",
+    "TEDx talks, the Global Groups Public Speaking Championship, writing, teaching, and Carnatic vocals.",
 };
 
 export default function SpeakingPage() {
@@ -37,9 +37,9 @@ export default function SpeakingPage() {
               just a face.
             </h1>
             <p className="lede mt-6 max-w-2xl">
-              7+ years of competitive speaking, two TEDx stages, a world
-              championship title, 600+ Sanskrit verses, and a belief that
-              communication education should be free.
+              7+ years of competitive speaking, two TEDx stages, a Global
+              Groups championship title, 600+ Sanskrit verses, and a belief
+              that communication education should be free.
             </p>
           </Reveal>
 
