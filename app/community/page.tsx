@@ -10,7 +10,7 @@ import { communityPrograms, communityRole, press, suvidhaStats } from "@/lib/con
 export const metadata: Metadata = {
   title: "Giving Back",
   description:
-    "Free communication and AI education: 240+ students taught across 9 camps, 7k+ learners reached through free workshops, and $10,000+ raised.",
+    "Free communication and AI education: 9+ camps led, 240+ students taught, 7k+ learners reached through free workshops, and $10,000+ raised.",
 };
 
 export default function CommunityPage() {

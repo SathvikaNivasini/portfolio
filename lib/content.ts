@@ -649,7 +649,7 @@ export const communityRole: Role = {
   slug: "suvidha",
   href: SUVIDHA_URL,
   points: [
-    "Taught public speaking at 7+ camps and introduced an AI and programming camp, reaching 240+ students across 9 camps; camp proceeds helped raise $10,000+ for people in need.",
+    "Led 9+ camps in public speaking and in AI & programming, reaching 240+ students; camp proceeds helped raise $10,000+ for people in need.",
     "Co-organized the foundation's Global AI Hackathon (150+ participants), automated internal tasks, built websites, and manage its LinkedIn.",
   ],
 };
@@ -884,8 +884,8 @@ export const press: PressItem[] = [
 ];
 
 export const suvidhaStats = [
-  { value: "240+", label: "Students taught across 9 camps" },
-  { value: "7+", label: "Public speaking camps led" },
+  { value: "240+", label: "Students taught" },
+  { value: "9+", label: "Camps led — public speaking and AI & programming" },
   { value: "150+", label: "Participants in the Global AI Hackathon" },
   { value: "$10,000+", label: "Raised for people in need" },
 ];
@@ -988,8 +988,8 @@ export const otherSide: OtherSide[] = [
     title: "Teaching, free",
     body: "Communication education should not be a thing you need money to access.",
     detail: [
-      "240+ students reached across 9 camps with Suvidha International Foundation.",
-      "7+ public speaking camps taught; introduced an AI and programming camp.",
+      "240+ students reached with Suvidha International Foundation.",
+      "9+ camps led in public speaking and in AI & programming, a track I introduced.",
       "Camp proceeds helped raise $10,000+ for people in need.",
       "VakShala is free for anyone who attends a community workshop — 7k+ learners across 5+ international schools.",
     ],
