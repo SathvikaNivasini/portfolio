@@ -59,6 +59,12 @@ export const pillars: Pillar[] = [
  */
 export const VAKSHALA_APP_URL = "https://vakshala-site.netlify.app/";
 
+/**
+ * Paste the Suvidha International Foundation site here and the
+ * organisation's name becomes a link. Empty leaves it as plain text.
+ */
+export const SUVIDHA_URL = "";
+
 export type ProjectStatus = "live" | "building" | "research" | "archive";
 
 export const statusLabel: Record<ProjectStatus, string> = {
@@ -579,6 +585,10 @@ export type Role = {
   note?: string;
   points: string[];
   logo?: string;
+  /** Anchor id, so the role can be linked to directly. */
+  slug?: string;
+  /** Makes the organisation's name a link when set. */
+  href?: string;
 };
 
 export const experience: Role[] = [
@@ -625,16 +635,24 @@ export const experience: Role[] = [
       "Year-long leadership and management internship offer following a rigorous four-stage selection.",
     ],
   },
-  {
-    org: "Suvidha International Foundation",
-    title: "Lead Coach & Volunteer — AI, Public Speaking & Tech",
-    period: "2025 — Present",
-    points: [
-      "Taught public speaking at 7+ camps and introduced an AI and programming camp, reaching 240+ students across 9 camps; camp proceeds helped raise $10,000+ for people in need.",
-      "Co-organized the foundation's Global AI Hackathon (150+ participants), automated internal tasks, built websites, and manage its LinkedIn.",
-    ],
-  },
 ];
+
+/**
+ * Kept separate from the internships: this is nonprofit work, it has its
+ * own press coverage, and it gets its own anchor so it can be linked to
+ * on its own.
+ */
+export const communityRole: Role = {
+  org: "Suvidha International Foundation",
+  title: "Lead Coach & Volunteer — AI, Public Speaking & Tech",
+  period: "2025 — Present",
+  slug: "suvidha",
+  href: SUVIDHA_URL,
+  points: [
+    "Taught public speaking at 7+ camps and introduced an AI and programming camp, reaching 240+ students across 9 camps; camp proceeds helped raise $10,000+ for people in need.",
+    "Co-organized the foundation's Global AI Hackathon (150+ participants), automated internal tasks, built websites, and manage its LinkedIn.",
+  ],
+};
 
 /* ---------------- origin story ---------------- */
 

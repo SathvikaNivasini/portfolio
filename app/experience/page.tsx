@@ -3,7 +3,8 @@ import Photo from "@/components/photo";
 import PhotoWall from "@/components/photo-wall";
 import Reveal from "@/components/reveal";
 import Starfield from "@/components/starfield";
-import { experience, press, suvidhaStats } from "@/lib/content";
+import RoleCard from "@/components/role-card";
+import { communityRole, experience, press, suvidhaStats } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Inside the Industry",
@@ -147,69 +148,33 @@ export default function ExperiencePage() {
         <div className="mt-14 space-y-5">
           {experience.map((role, i) => (
             <Reveal key={`${role.org}-${role.title}`} delay={i * 70}>
-              <article className="panel panel-hover p-7">
-                <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                  <h2
-                    className="font-display text-xl font-semibold"
-                    style={{ color: "var(--text)" }}
-                  >
-                    {role.title}
-                  </h2>
-                  <span
-                    className="text-sm whitespace-nowrap"
-                    style={{ color: "var(--text-faint)" }}
-                  >
-                    {role.period}
-                  </span>
-                </div>
-
-                <p className="mt-1.5 text-sm" style={{ color: "var(--accent)" }}>
-                  {role.org}
-                  {role.location && (
-                    <span style={{ color: "var(--text-faint)" }}>
-                      {" "}
-                      · {role.location}
-                    </span>
-                  )}
-                </p>
-
-                {role.note && (
-                  <p
-                    className="mt-4 rounded-lg px-4 py-3 text-sm leading-relaxed"
-                    style={{
-                      background:
-                        "color-mix(in srgb, var(--accent) 10%, transparent)",
-                      color: "var(--text)",
-                    }}
-                  >
-                    {role.note}
-                  </p>
-                )}
-
-                <ul className="mt-4 space-y-2.5">
-                  {role.points.map((pt, j) => (
-                    <li key={j} className="flex gap-3">
-                      <span
-                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
-                        style={{ background: "var(--accent-warm)" }}
-                        aria-hidden
-                      />
-                      <span
-                        className="text-sm leading-relaxed"
-                        style={{ color: "var(--text-muted)" }}
-                      >
-                        {pt}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
+              <RoleCard role={role} />
             </Reveal>
           ))}
         </div>
 
         <Reveal>
-          <div className="mt-16">
+          <div className="mt-20">
+            <p className="eyebrow">Community work</p>
+            <h2
+              className="font-display mt-3 text-2xl font-semibold sm:text-3xl"
+              style={{ color: "var(--text)" }}
+            >
+              Suvidha International Foundation
+            </h2>
+            <p className="lede mt-3 max-w-2xl">
+              Separate from the internships: a nonprofit where I teach
+              communication and AI to students who would not otherwise pay for
+              either.
+            </p>
+            <div className="mt-6">
+              <RoleCard role={communityRole} />
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <div className="mt-14">
             <p className="eyebrow">In the press</p>
             <h2
               className="font-display mt-3 text-2xl font-semibold sm:text-3xl"
