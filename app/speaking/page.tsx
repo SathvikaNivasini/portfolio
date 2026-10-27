@@ -37,10 +37,9 @@ export default function SpeakingPage() {
               just a face.
             </h1>
             <p className="lede mt-6 max-w-2xl">
-              Seven years of competitive speaking, two TEDx stages, a world
-              championship title, 600+ Sanskrit verses, and a stubborn belief
-              that communication education should be free. This is the part of
-              the portfolio that is not a résumé.
+              7+ years of competitive speaking, two TEDx stages, a world
+              championship title, 600+ Sanskrit verses, and a belief that
+              communication education should be free.
             </p>
           </Reveal>
 
