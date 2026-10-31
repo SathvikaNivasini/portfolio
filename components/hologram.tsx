@@ -34,7 +34,7 @@ const frames: Frame[] = [
     label: "MUSICIAN",
     src: "/images/shades/veena.jpg",
     alt: "Playing the veena, seated on the floor",
-    caption: "Carnatic veena",
+    caption: "Carnatic vocalist & veena player",
   },
   {
     label: "FIGHTER",
