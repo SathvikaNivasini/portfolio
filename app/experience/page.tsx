@@ -169,13 +169,6 @@ export default function ExperiencePage() {
                 />
               </div>
             </div>
-            <figcaption
-              className="mt-3 text-xs"
-              style={{ color: "var(--text-faint)" }}
-            >
-              Selected as 1 of 2 students from a school of 4,000+, through the
-              Practicum in Entrepreneurship course.
-            </figcaption>
           </figure>
         </Reveal>
 

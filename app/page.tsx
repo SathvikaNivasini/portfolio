@@ -5,6 +5,7 @@ import Photo from "@/components/photo";
 import HomeClient from "@/components/home-client";
 import CertCard from "@/components/cert-card";
 import Shades from "@/components/shades";
+import Hologram from "@/components/hologram";
 import Magnetic from "@/components/magnetic";
 import ParticleField from "@/components/particle-field";
 import Scramble from "@/components/scramble";
@@ -124,6 +125,9 @@ export default function Home() {
           </div>
         </Reveal>
       </section>
+
+      {/* ---------------- holographic projections ---------------- */}
+      <Hologram />
 
       {/* constellation + filtered project grid */}
       <HomeClient />

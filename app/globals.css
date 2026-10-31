@@ -391,6 +391,183 @@ body {
   opacity: 0.3;
 }
 
+/* ---------- hologram projection ---------- */
+
+.holo-stage {
+  perspective: 1400px;
+  perspective-origin: 50% 40%;
+  height: clamp(23rem, 46vw, 31rem);
+  max-width: 34rem;
+}
+
+.holo-deck {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.holo-card {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(100%, 30rem);
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+/* The pane itself: glass, lit from inside, with a cyan-lavender rim. */
+.holo-frame {
+  overflow: hidden;
+  border-radius: 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--accent) 16%, transparent),
+    color-mix(in srgb, var(--cosmos, #201a38) 82%, transparent)
+  );
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent),
+    0 18px 60px -18px color-mix(in srgb, var(--accent) 60%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #ffffff 22%, transparent);
+  animation: holo-float 7s ease-in-out infinite;
+}
+
+@keyframes holo-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+/* Cyan wash over the photo so it reads as projected light, not print. */
+.holo-tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 28%, transparent),
+    transparent 45%,
+    color-mix(in srgb, var(--accent-warm) 16%, transparent)
+  );
+}
+
+/* Chromatic split on the role name. */
+.holo-label {
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--ivory, #f6f1ea);
+  text-shadow: -1.5px 0 color-mix(in srgb, var(--accent) 85%, transparent),
+    1.5px 0 color-mix(in srgb, #7fe7ff 70%, transparent),
+    0 0 22px color-mix(in srgb, var(--accent) 60%, transparent);
+  animation: holo-flicker 5s steps(1, end) infinite;
+}
+
+@keyframes holo-flicker {
+  0%,
+  92%,
+  100% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.72;
+  }
+  94% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 0.85;
+  }
+  97% {
+    opacity: 1;
+  }
+}
+
+/* Bracket corners, like a targeting frame. */
+.holo-corner {
+  position: absolute;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-color: var(--accent);
+  opacity: 0.9;
+}
+.holo-corner-tl {
+  top: 8px;
+  left: 8px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+.holo-corner-tr {
+  top: 8px;
+  right: 8px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+}
+.holo-corner-bl {
+  bottom: 8px;
+  left: 8px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+}
+.holo-corner-br {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+/* The emitter plate the projection stands on. */
+.holo-base {
+  position: absolute;
+  left: 50%;
+  bottom: -2.4rem;
+  width: min(86%, 26rem);
+  height: 4.5rem;
+  transform: translateX(-50%) rotateX(74deg);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--accent) 70%, transparent),
+    color-mix(in srgb, var(--accent) 22%, transparent) 45%,
+    transparent 72%
+  );
+  animation: holo-pulse 3.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes holo-pulse {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Light cone rising off the plate. */
+.holo-beams {
+  position: absolute;
+  left: 50%;
+  bottom: -1rem;
+  width: min(92%, 29rem);
+  height: 85%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--accent) 26%, transparent),
+    transparent 62%
+  );
+  clip-path: polygon(16% 100%, 84% 100%, 97% 0%, 3% 0%);
+  opacity: 0.5;
+  animation: holo-pulse 3.4s ease-in-out infinite;
+}
+
 /* Route change sweep. */
 @keyframes route-sweep {
   0% {
