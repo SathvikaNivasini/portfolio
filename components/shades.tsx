@@ -36,6 +36,12 @@ const shades = [
     alt: "At a Microsoft office wearing an intern badge",
     ratio: "aspect-[4/3]",
   },
+  {
+    src: "/images/shades/strategist.jpg",
+    label: "the strategist",
+    alt: "In a blazer, dressed for a business meeting",
+    ratio: "aspect-[3/4]",
+  },
 ];
 
 export default function Shades() {
@@ -53,10 +59,7 @@ export default function Shades() {
               <span className="underline-sketch">shades</span> of me.
             </h2>
           </div>
-          <p className="lede max-w-sm">
-            Carnatic veena, a TEDx stage, a karate mat, a 3D printer, a badge
-            at the front desk. Same person, different rooms.
-          </p>
+          <p className="lede max-w-sm">Same person, different rooms.</p>
         </div>
       </Reveal>
 
