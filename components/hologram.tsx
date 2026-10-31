@@ -46,7 +46,7 @@ const frames: Frame[] = [
     label: "INTERN",
     src: "/images/shades/microsoft-desk.jpg",
     alt: "At a Microsoft office wearing an intern badge",
-    caption: "1 yr of Microsoft",
+    caption: "a year with Microsoft CLICK",
   },
   {
     label: "STRATEGIST",
