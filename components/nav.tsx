@@ -13,6 +13,7 @@ const links = [
   { href: "/experience", label: "Industry" },
   { href: "/community", label: "Community" },
   { href: "/speaking", label: "Voice" },
+  { href: "/honors", label: "Honors" },
   { href: "/journal", label: "Notebook" },
 ];
 
@@ -65,7 +66,7 @@ export default function Nav() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -99,7 +100,7 @@ export default function Nav() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="panel flex h-9 w-9 items-center justify-center md:hidden"
+            className="panel flex h-9 w-9 items-center justify-center lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
@@ -127,7 +128,7 @@ export default function Nav() {
 
       {/* Mobile sheet */}
       <div
-        className="overflow-hidden transition-all duration-400 md:hidden"
+        className="overflow-hidden transition-all duration-400 lg:hidden"
         style={{ maxHeight: open ? "22rem" : "0rem" }}
       >
         <nav className="flex flex-col gap-1 px-4 pb-5 pt-1 sm:px-6">

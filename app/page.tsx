@@ -3,7 +3,15 @@ import Starfield from "@/components/starfield";
 import Reveal from "@/components/reveal";
 import Photo from "@/components/photo";
 import HomeClient from "@/components/home-client";
-import { experience, honors, journal, profile, talks } from "@/lib/content";
+import CertCard from "@/components/cert-card";
+import {
+  certifications,
+  experience,
+  honors,
+  journal,
+  profile,
+  talks,
+} from "@/lib/content";
 
 export default function Home() {
   return (
@@ -232,6 +240,51 @@ export default function Home() {
               style={{ color: "var(--text)" }}
             >
               The full industry record →
+            </Link>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* ---------------- certifications ---------------- */}
+      <section className="mx-auto mt-28 max-w-6xl px-4 sm:px-6">
+        <Reveal>
+          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="eyebrow">Certified</p>
+              <h2
+                className="font-display mt-3 text-4xl font-semibold sm:text-5xl"
+                style={{ color: "var(--text)" }}
+              >
+                Industry
+                <br />
+                certifications.
+              </h2>
+            </div>
+            <p className="lede max-w-sm">
+              Credentials in CAD and robotics, taken through accredited
+              industry exams. Each one links to the certificate.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          {certifications
+            .filter((c) => c.featured)
+            .map((c, i) => (
+              <Reveal key={c.name} delay={i * 90}>
+                <CertCard cert={c} />
+              </Reveal>
+            ))}
+        </div>
+
+        <Reveal delay={200}>
+          <div className="mt-8 flex justify-center">
+            <Link
+              href="/honors"
+              className="panel panel-hover rounded-full px-6 py-3 text-sm font-medium"
+              style={{ color: "var(--text)" }}
+            >
+              All honors &amp; certifications →
             </Link>
           </div>
         </Reveal>

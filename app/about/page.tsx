@@ -489,14 +489,22 @@ export default function AboutPage() {
               <ul className="mt-3 space-y-1.5">
                 {certifications.map((c) => (
                   <li
-                    key={c}
+                    key={c.name}
                     className="text-sm leading-relaxed"
                     style={{ color: "var(--text-muted)" }}
                   >
-                    {c}
+                    {c.name} — {c.issuer}
+                    {c.date !== "—" && `, ${c.date}`}
                   </li>
                 ))}
               </ul>
+              <Link
+                href="/honors"
+                className="mt-4 inline-flex text-sm font-medium transition-transform duration-300 hover:translate-x-1"
+                style={{ color: "var(--accent)" }}
+              >
+                See the certificates →
+              </Link>
             </div>
           </Reveal>
         </div>

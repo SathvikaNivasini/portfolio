@@ -1094,11 +1094,60 @@ export const skills = {
   Business: ["GTM strategy", "Market analysis", "Product architecture", "Org design"],
 };
 
-export const certifications = [
-  "Certified Industry 4.0 Associate, Robot System Operations — SACA, 2026",
-  "Artificial Intelligence with Python — MSME PPDC Agra, 2022",
-  "Cyber Security & Ethical Hacking — MSME-TDC PPDC Agra, 2022",
-  "Certified Business Management Professional — MSME TDC Chennai, 2023",
-  "Designing & Building Electronic Circuits — Young-Scientist.in, 2021",
-  "Digital Video Editing: Photoshop & Premiere Pro — MSME TDC Chennai",
+export type Certification = {
+  name: string;
+  issuer: string;
+  date: string;
+  /** Credential number, where the certificate carries one. */
+  credentialId?: string;
+  /** The certificate itself, under /public. */
+  file?: string;
+  note?: string;
+  /** Industry credentials, featured on the home page. */
+  featured?: boolean;
+};
+
+export const certifications: Certification[] = [
+  {
+    name: "SOLIDWORKS Design Associate (CSWA)",
+    issuer: "Dassault Systèmes",
+    date: "Oct 2026",
+    credentialId: "C-ZFUW6LM7SH",
+    file: "/certificates/solidworks-cswa.pdf",
+    note: "Academic exam, Coppell Independent School District",
+    featured: true,
+  },
+  {
+    name: "Certified Industry 4.0 Associate — Robot System Operations",
+    issuer: "SACA",
+    date: "May 2026",
+    credentialId: "L43JD7",
+    file: "/certificates/saca-industry-4-0-robot-systems.pdf",
+    featured: true,
+  },
+  {
+    name: "Certified Business Management Professional",
+    issuer: "MSME TDC Chennai",
+    date: "2023",
+  },
+  {
+    name: "Artificial Intelligence with Python",
+    issuer: "MSME PPDC Agra",
+    date: "2022",
+  },
+  {
+    name: "Cyber Security & Ethical Hacking",
+    issuer: "MSME-TDC PPDC Agra",
+    date: "2022",
+  },
+  {
+    name: "Designing & Building Electronic Circuits",
+    issuer: "Young-Scientist.in",
+    date: "2021",
+  },
+  {
+    name: "Digital Video Editing: Photoshop & Premiere Pro",
+    issuer: "MSME TDC Chennai",
+    date: "—",
+  },
 ];
