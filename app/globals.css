@@ -395,7 +395,7 @@ body {
 
 .holo-stage {
   perspective: 1400px;
-  perspective-origin: 50% 40%;
+  perspective-origin: 50% 38%;
   height: clamp(23rem, 46vw, 31rem);
   max-width: 34rem;
 }
@@ -415,20 +415,28 @@ body {
   will-change: transform, opacity;
 }
 
-/* The pane itself: glass, lit from inside, with a cyan-lavender rim. */
+/*
+ * The pane. Deliberately translucent — a projection you can see the room
+ * through, rather than a card sitting on the page.
+ */
 .holo-frame {
   overflow: hidden;
   border-radius: 0.9rem;
-  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 58%, transparent);
   background: linear-gradient(
     160deg,
-    color-mix(in srgb, var(--accent) 16%, transparent),
-    color-mix(in srgb, var(--cosmos, #201a38) 82%, transparent)
+    color-mix(in srgb, var(--accent) 13%, transparent),
+    color-mix(in srgb, #0a1830 42%, transparent)
   );
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent),
-    0 18px 60px -18px color-mix(in srgb, var(--accent) 60%, transparent),
-    inset 0 1px 0 color-mix(in srgb, #ffffff 22%, transparent);
-  animation: holo-float 7s ease-in-out infinite;
+  box-shadow: 0 0 0 1px color-mix(in srgb, #7fe7ff 16%, transparent),
+    0 0 42px -6px color-mix(in srgb, var(--accent) 55%, transparent),
+    0 26px 70px -22px color-mix(in srgb, var(--accent) 70%, transparent),
+    inset 0 1px 0 color-mix(in srgb, #ffffff 20%, transparent);
+}
+
+.holo-card.is-live .holo-frame {
+  animation: holo-float 7s ease-in-out infinite,
+    holo-jitter 9s steps(1, end) infinite;
 }
 
 @keyframes holo-float {
@@ -437,33 +445,164 @@ body {
     translate: 0 0;
   }
   50% {
-    translate: 0 -8px;
+    translate: 0 -9px;
   }
 }
 
-/* Cyan wash over the photo so it reads as projected light, not print. */
+/* An occasional signal hiccup: a quick sideways slip, then steady again. */
+@keyframes holo-jitter {
+  0%,
+  86%,
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  87% {
+    transform: translateX(-3px);
+    opacity: 0.86;
+  }
+  88% {
+    transform: translateX(2px);
+    opacity: 1;
+  }
+  89% {
+    transform: translateX(0);
+  }
+  94% {
+    opacity: 0.9;
+  }
+  95% {
+    opacity: 1;
+  }
+}
+
+/* The photo is light being cast, so it never sits at full opacity. */
+.holo-media img {
+  opacity: 0.88;
+  filter: saturate(1.15) contrast(1.06) brightness(1.04);
+}
+
 .holo-tint {
   position: absolute;
   inset: 0;
   pointer-events: none;
   mix-blend-mode: screen;
   background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--accent) 28%, transparent),
-    transparent 45%,
-    color-mix(in srgb, var(--accent-warm) 16%, transparent)
-  );
+      180deg,
+      color-mix(in srgb, #7fe7ff 30%, transparent),
+      transparent 42%,
+      color-mix(in srgb, var(--accent) 26%, transparent)
+    ),
+    radial-gradient(
+      120% 80% at 50% 0%,
+      color-mix(in srgb, var(--accent) 24%, transparent),
+      transparent 70%
+    );
 }
 
-/* Chromatic split on the role name. */
+/*
+ * Chromatic fringing. Two tinted copies of the pane's own gradient nudged
+ * a pixel each way reads as an RGB split without duplicating the image.
+ */
+.holo-ghost {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.33;
+}
+
+.holo-ghost-r {
+  background: linear-gradient(
+    110deg,
+    rgba(255, 60, 90, 0.5),
+    transparent 38%
+  );
+  transform: translateX(-2px);
+}
+
+.holo-ghost-c {
+  background: linear-gradient(
+    290deg,
+    rgba(90, 240, 255, 0.5),
+    transparent 38%
+  );
+  transform: translateX(2px);
+}
+
+/* Fine interlace, as if the image were being drawn line by line. */
+/*
+ * Animating background-position repaints the whole pane every frame.
+ * An oversized child moved by transform stays on the compositor instead.
+ */
+.holo-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.85;
+}
+
+.holo-scanlines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -50%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.055) 0px,
+    rgba(255, 255, 255, 0.055) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  will-change: transform;
+  animation: holo-interlace 7s linear infinite;
+}
+
+@keyframes holo-interlace {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(30px);
+  }
+}
+
+/* A brighter band travelling down the pane. */
+.holo-sweep {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 26%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in srgb, #9fe9ff 20%, transparent),
+    transparent
+  );
+  animation: holo-sweep-move 5.5s ease-in-out infinite;
+}
+
+@keyframes holo-sweep-move {
+  0% {
+    transform: translateY(-120%);
+  }
+  100% {
+    transform: translateY(460%);
+  }
+}
+
 .holo-label {
   font-size: clamp(1.5rem, 4vw, 2.1rem);
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: var(--ivory, #f6f1ea);
-  text-shadow: -1.5px 0 color-mix(in srgb, var(--accent) 85%, transparent),
-    1.5px 0 color-mix(in srgb, #7fe7ff 70%, transparent),
-    0 0 22px color-mix(in srgb, var(--accent) 60%, transparent);
+  color: color-mix(in srgb, #ffffff 92%, var(--accent));
+  text-shadow: -1.5px 0 rgba(255, 60, 90, 0.75),
+    1.5px 0 rgba(90, 240, 255, 0.75),
+    0 0 24px color-mix(in srgb, var(--accent) 70%, transparent);
   animation: holo-flicker 5s steps(1, end) infinite;
 }
 
@@ -474,25 +613,24 @@ body {
     opacity: 1;
   }
   93% {
-    opacity: 0.72;
+    opacity: 0.7;
   }
   94% {
     opacity: 1;
   }
   96% {
-    opacity: 0.85;
+    opacity: 0.84;
   }
   97% {
     opacity: 1;
   }
 }
 
-/* Bracket corners, like a targeting frame. */
 .holo-corner {
   position: absolute;
   width: 1.1rem;
   height: 1.1rem;
-  border-color: var(--accent);
+  border-color: color-mix(in srgb, #9fe9ff 85%, var(--accent));
   opacity: 0.9;
 }
 .holo-corner-tl {
@@ -520,7 +658,7 @@ body {
   border-right: 2px solid;
 }
 
-/* The emitter plate the projection stands on. */
+/* Emitter plate. */
 .holo-base {
   position: absolute;
   left: 50%;
@@ -531,41 +669,133 @@ body {
   border-radius: 50%;
   background: radial-gradient(
     ellipse at center,
-    color-mix(in srgb, var(--accent) 70%, transparent),
-    color-mix(in srgb, var(--accent) 22%, transparent) 45%,
+    color-mix(in srgb, #bfefff 80%, transparent),
+    color-mix(in srgb, var(--accent) 45%, transparent) 38%,
     transparent 72%
   );
   animation: holo-pulse 3.4s ease-in-out infinite;
   pointer-events: none;
 }
 
+/* A thin ring on the plate, expanding like an emitter pulse. */
+.holo-base-ring {
+  position: absolute;
+  left: 50%;
+  bottom: -2.1rem;
+  width: min(70%, 21rem);
+  height: 3.4rem;
+  transform: translateX(-50%) rotateX(74deg);
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, #9fe9ff 60%, transparent);
+  animation: holo-ring 3.4s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes holo-ring {
+  0% {
+    opacity: 0.8;
+    scale: 0.75;
+  }
+  70% {
+    opacity: 0;
+    scale: 1.25;
+  }
+  100% {
+    opacity: 0;
+    scale: 1.25;
+  }
+}
+
 @keyframes holo-pulse {
   0%,
   100% {
-    opacity: 0.75;
+    opacity: 0.7;
   }
   50% {
     opacity: 1;
   }
 }
 
-/* Light cone rising off the plate. */
+/* Light cone, with a slow shimmer travelling through it. */
 .holo-beams {
   position: absolute;
   left: 50%;
   bottom: -1rem;
-  width: min(92%, 29rem);
-  height: 85%;
+  width: min(94%, 30rem);
+  height: 88%;
   transform: translateX(-50%);
   pointer-events: none;
+  overflow: hidden;
   background: linear-gradient(
     to top,
-    color-mix(in srgb, var(--accent) 26%, transparent),
-    transparent 62%
+    color-mix(in srgb, #8fe4ff 26%, transparent),
+    color-mix(in srgb, var(--accent) 12%, transparent) 45%,
+    transparent 72%
   );
-  clip-path: polygon(16% 100%, 84% 100%, 97% 0%, 3% 0%);
+  clip-path: polygon(15% 100%, 85% 100%, 98% 0%, 2% 0%);
   opacity: 0.5;
-  animation: holo-pulse 3.4s ease-in-out infinite;
+}
+
+.holo-beam-shimmer {
+  position: absolute;
+  inset: -20% 0;
+  background: repeating-linear-gradient(
+    96deg,
+    transparent 0 18px,
+    rgba(255, 255, 255, 0.05) 18px 20px
+  );
+  animation: holo-beam-move 9s linear infinite;
+}
+
+@keyframes holo-beam-move {
+  from {
+    transform: translateX(-12%);
+  }
+  to {
+    transform: translateX(12%);
+  }
+}
+
+/* Motes drifting up the cone. */
+.holo-motes {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(80%, 24rem);
+  height: 100%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.holo-motes span {
+  position: absolute;
+  bottom: -6px;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: color-mix(in srgb, #bfefff 90%, transparent);
+  box-shadow: 0 0 6px color-mix(in srgb, #9fe9ff 80%, transparent);
+  animation-name: holo-mote-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes holo-mote-rise {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-20rem) scale(1.1);
+    opacity: 0;
+  }
 }
 
 /* Route change sweep. */

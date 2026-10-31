@@ -4,7 +4,6 @@ import Reveal from "@/components/reveal";
 import Photo from "@/components/photo";
 import HomeClient from "@/components/home-client";
 import CertCard from "@/components/cert-card";
-import Shades from "@/components/shades";
 import Hologram from "@/components/hologram";
 import Magnetic from "@/components/magnetic";
 import ParticleField from "@/components/particle-field";
@@ -393,9 +392,6 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
-
-      {/* ---------------- different shades ---------------- */}
-      <Shades />
 
       {/* ---------------- 06 · notebook ---------------- */}
       <section className="mx-auto mt-24 max-w-6xl px-4 sm:px-6">
