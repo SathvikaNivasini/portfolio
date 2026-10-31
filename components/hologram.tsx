@@ -38,15 +38,15 @@ const frames: Frame[] = [
   },
   {
     label: "FIGHTER",
-    src: "/images/shades/karate.jpg",
-    alt: "Mid-kick during a karate class",
-    caption: "karate mat",
+    src: "/images/shades/taekwondo.jpg",
+    alt: "Mid-kick during a taekwondo class",
+    caption: "taekwondo",
   },
   {
     label: "INTERN",
     src: "/images/shades/microsoft-desk.jpg",
     alt: "At a Microsoft office wearing an intern badge",
-    caption: "Microsoft, front desk",
+    caption: "1 yr of Microsoft",
   },
   {
     label: "STRATEGIST",
