@@ -24,7 +24,6 @@ export default function Home() {
     <>
       {/* ---------------- 01 · The entrance ---------------- */}
       <section className="relative overflow-hidden px-4 pb-16 pt-32 sm:px-6 sm:pt-36">
-        <div className="aurora -z-10" aria-hidden />
         <ParticleField />
         <Starfield count={60} />
         <div
@@ -111,7 +110,7 @@ export default function Home() {
           {/* right: constellation + a pinned photo */}
           <div className="relative">
             <Reveal delay={160}>
-              <HomeClientHeroSlot />
+              <Hologram compact />
             </Reveal>
           </div>
         </div>
@@ -124,9 +123,6 @@ export default function Home() {
           </div>
         </Reveal>
       </section>
-
-      {/* ---------------- holographic projections ---------------- */}
-      <Hologram />
 
       {/* constellation + filtered project grid */}
       <HomeClient />
@@ -458,31 +454,5 @@ export default function Home() {
         </Reveal>
       </section>
     </>
-  );
-}
-
-/**
- * The hero's right-hand column. A pinned photo sits behind the constellation
- * that HomeClient renders further down, so the entrance has a face in it.
- */
-function HomeClientHeroSlot() {
-  return (
-    <div className="relative mx-auto max-w-md">
-      <div className="polaroid tilt-r relative w-full">
-        <div className="relative aspect-[4/5] w-full overflow-hidden">
-          <Photo
-            src="/images/gallery/hero-portrait.jpg"
-            alt="Sathvika Nivasini"
-            hint="your main hero portrait"
-            priority
-            sizes="(max-width: 1024px) 90vw, 26rem"
-          />
-        </div>
-        <p className="margin-note absolute bottom-3 left-0 w-full text-center">
-          same girl… bigger dreams ♡
-        </p>
-      </div>
-
-    </div>
   );
 }

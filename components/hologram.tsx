@@ -13,6 +13,12 @@ type Frame = {
 /** One projection per facet, each with a photo of that facet in action. */
 const frames: Frame[] = [
   {
+    label: "FOUNDER",
+    src: "/images/gallery/hero-portrait.jpg",
+    alt: "Sathvika Nivasini against a brick wall",
+    caption: "same girl… bigger dreams",
+  },
+  {
     label: "MAKER",
     src: "/images/shades/makerspace.jpg",
     alt: "In a makerspace beside a 3D printer and a pegboard of tools",
@@ -54,7 +60,7 @@ const HOLD = 3800;
 /** Motes drifting up through the light cone. */
 const MOTES = [8, 24, 38, 52, 66, 79, 92];
 
-export default function Hologram() {
+export default function Hologram({ compact = false }: { compact?: boolean }) {
   const [i, setI] = useState(0);
   const [reduced, setReduced] = useState(false);
   const [paused, setPaused] = useState(false);
@@ -108,20 +114,24 @@ export default function Hologram() {
   }
 
   return (
-    <section className="relative mx-auto mt-24 max-w-5xl px-4 sm:px-6">
-      <div className="text-center">
-        <p className="eyebrow">Off the résumé</p>
-        <h2
-          className="font-display mt-3 text-3xl font-semibold sm:text-4xl"
-          style={{ color: "var(--text)" }}
-        >
-          Different shades of me.
-        </h2>
-        <p className="lede mx-auto mt-3 max-w-md">Same person, different rooms.</p>
-      </div>
+    <section className={`relative mx-auto max-w-5xl ${compact ? "" : "mt-24 px-4 sm:px-6"}`}>
+      {!compact && (
+        <div className="text-center">
+          <p className="eyebrow">Off the résumé</p>
+          <h2
+            className="font-display mt-3 text-3xl font-semibold sm:text-4xl"
+            style={{ color: "var(--text)" }}
+          >
+            Different shades of me.
+          </h2>
+          <p className="lede mx-auto mt-3 max-w-md">
+            Same person, different rooms.
+          </p>
+        </div>
+      )}
 
       <div
-        className="holo-stage relative mx-auto mt-12"
+        className={`holo-stage relative mx-auto ${compact ? "holo-stage--compact mt-2" : "mt-12"}`}
         onPointerEnter={() => setPaused(true)}
         onPointerLeave={() => setPaused(false)}
       >
@@ -211,7 +221,7 @@ export default function Hologram() {
         <div className="holo-base-ring" aria-hidden />
       </div>
 
-      <div className="mt-10 flex flex-wrap justify-center gap-2.5">
+      <div className={`flex flex-wrap justify-center gap-2 ${compact ? "mt-7" : "mt-10"}`}>
         {frames.map((f, idx) => (
           <button
             key={f.label}
