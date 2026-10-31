@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Photo from "./photo";
+import Tilt from "./tilt";
 import { statusLabel, type Project } from "@/lib/content";
 
 const pillClass: Record<Project["status"], string> = {
@@ -17,14 +18,16 @@ export default function ProjectCard({
   dimmed?: boolean;
 }) {
   return (
-    <Link
-      href={`/projects/${project.slug}`}
-      className="panel panel-hover group flex flex-col overflow-hidden"
-      style={{
-        opacity: dimmed ? 0.32 : 1,
-        transition: "opacity 0.45s ease, transform 0.35s ease, border-color 0.35s ease",
-      }}
-    >
+    <Tilt className="h-full">
+      <Link
+        href={`/projects/${project.slug}`}
+        className="panel panel-hover group flex h-full flex-col overflow-hidden"
+        style={{
+          opacity: dimmed ? 0.32 : 1,
+          transition:
+            "opacity 0.45s ease, border-color 0.35s ease, background-color 0.35s ease",
+        }}
+      >
       <div className="relative aspect-[16/10] w-full overflow-hidden">
         <Photo
           src={project.cover}
@@ -77,7 +80,8 @@ export default function ProjectCard({
           Read the case study
           <span aria-hidden>→</span>
         </span>
-      </div>
-    </Link>
+        </div>
+      </Link>
+    </Tilt>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import CountUp from "@/components/count-up";
 import Photo from "@/components/photo";
 import PhotoWall from "@/components/photo-wall";
 import Reveal from "@/components/reveal";
@@ -193,7 +194,7 @@ export default async function ProjectPage({
                   className="font-display text-2xl font-semibold leading-none sm:text-3xl"
                   style={{ color: "var(--accent)" }}
                 >
-                  {s.value}
+                  <CountUp value={s.value} />
                 </dt>
                 <dd
                   className="mt-2.5 text-xs leading-snug"

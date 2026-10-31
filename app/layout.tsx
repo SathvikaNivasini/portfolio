@@ -3,6 +3,7 @@ import { Fraunces, Inter, Caveat } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
+import ScrollProgress from "@/components/scroll-progress";
 import { profile } from "@/lib/content";
 
 const fraunces = Fraunces({
@@ -72,6 +73,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <ScrollProgress />
         <Nav />
         <main id="main">{children}</main>
         <Footer />

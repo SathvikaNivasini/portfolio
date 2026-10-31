@@ -5,6 +5,8 @@ import Photo from "@/components/photo";
 import HomeClient from "@/components/home-client";
 import CertCard from "@/components/cert-card";
 import Shades from "@/components/shades";
+import SplitText from "@/components/split-text";
+import Typewriter from "@/components/typewriter";
 import {
   certifications,
   experience,
@@ -39,18 +41,22 @@ export default function Home() {
                 className="font-display text-[clamp(2.7rem,7vw,4.6rem)] font-semibold leading-[1.02]"
                 style={{ color: "var(--text)" }}
               >
-                Sathvika
+                <SplitText as="span" stagger={90}>
+                  Sathvika
+                </SplitText>
                 <br />
-                Nivasini
+                <SplitText as="span" stagger={90} delay={120}>
+                  Nivasini
+                </SplitText>
               </h1>
             </Reveal>
 
             <Reveal delay={120}>
               <p
-                className="mt-6 text-[0.7rem] font-medium uppercase tracking-[0.2em]"
-                style={{ color: "var(--text-faint)" }}
+                className="mt-6 flex min-h-[1.4em] items-center text-[0.8rem] font-medium uppercase tracking-[0.2em]"
+                style={{ color: "var(--accent-warm)" }}
               >
-                {profile.roles.join("  ·  ")}
+                <Typewriter words={profile.roles} />
               </p>
             </Reveal>
 
