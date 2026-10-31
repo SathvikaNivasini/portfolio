@@ -1102,6 +1102,8 @@ export type Certification = {
   credentialId?: string;
   /** The certificate itself, under /public. */
   file?: string;
+  /** A rendered image of the certificate, shown on the card. */
+  image?: string;
   note?: string;
   /** Industry credentials, featured on the home page. */
   featured?: boolean;
@@ -1114,6 +1116,7 @@ export const certifications: Certification[] = [
     date: "Oct 2026",
     credentialId: "C-ZFUW6LM7SH",
     file: "/certificates/solidworks-cswa.pdf",
+    image: "/images/certificates/solidworks-cswa.jpg",
     note: "Academic exam, Coppell Independent School District",
     featured: true,
   },
@@ -1123,6 +1126,7 @@ export const certifications: Certification[] = [
     date: "May 2026",
     credentialId: "L43JD7",
     file: "/certificates/saca-industry-4-0-robot-systems.pdf",
+    image: "/images/certificates/saca-industry-4-0.jpg",
     featured: true,
   },
   {

@@ -1,12 +1,28 @@
+import Photo from "./photo";
 import type { Certification } from "@/lib/content";
 
 /**
- * Renders as a link when the certificate file is available, so the
- * credential can be checked rather than taken on trust.
+ * Shows the certificate itself where there is one, and links to the PDF
+ * so the credential can be checked rather than taken on trust.
  */
 export default function CertCard({ cert }: { cert: Certification }) {
   const inner = (
     <>
+      {cert.image && (
+        <div
+          className="relative mb-5 aspect-[4/3] w-full overflow-hidden rounded-lg"
+          style={{ background: "#ffffff", border: "1px solid var(--border)" }}
+        >
+          <Photo
+            src={cert.image}
+            alt={`${cert.name} certificate issued by ${cert.issuer}`}
+            hint={`${cert.name} certificate`}
+            className="!object-contain p-2"
+            sizes="(max-width: 640px) 92vw, 30rem"
+          />
+        </div>
+      )}
+
       <div className="flex items-start justify-between gap-4">
         <h3
           className="font-display text-base font-semibold leading-snug"
