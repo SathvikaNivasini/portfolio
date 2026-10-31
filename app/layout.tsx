@@ -3,6 +3,8 @@ import { Fraunces, Inter, Caveat } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
+import Cursor from "@/components/cursor";
+import RouteTransition from "@/components/route-transition";
 import ScrollProgress from "@/components/scroll-progress";
 import { profile } from "@/lib/content";
 
@@ -74,6 +76,8 @@ export default function RootLayout({
           Skip to content
         </a>
         <ScrollProgress />
+        <RouteTransition />
+        <Cursor />
         <Nav />
         <main id="main">{children}</main>
         <Footer />

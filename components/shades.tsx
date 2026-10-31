@@ -1,4 +1,5 @@
 import Photo from "./photo";
+import Scramble from "./scramble";
 import Reveal from "./reveal";
 
 /**
@@ -50,7 +51,7 @@ export default function Shades() {
       <Reveal>
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="eyebrow">Off the résumé</p>
+            <p className="eyebrow"><Scramble>Off the résumé</Scramble></p>
             <h2
               className="font-display mt-3 text-4xl font-semibold sm:text-5xl"
               style={{ color: "var(--text)" }}

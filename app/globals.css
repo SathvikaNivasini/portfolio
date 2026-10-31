@@ -314,6 +314,154 @@ body {
   }
 }
 
+/* ---------- futuristic layer ---------- */
+
+/* Slow-drifting colour wash behind the hero. */
+@keyframes aurora-a {
+  0%,
+  100% {
+    transform: translate3d(-8%, -4%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(10%, 6%, 0) scale(1.25);
+  }
+}
+
+@keyframes aurora-b {
+  0%,
+  100% {
+    transform: translate3d(8%, 5%, 0) scale(1.15);
+  }
+  50% {
+    transform: translate3d(-9%, -7%, 0) scale(0.95);
+  }
+}
+
+/*
+ * No blur() here on purpose. Blurring a viewport-sized box re-rasterises
+ * it on every animation frame and cost ~50fps on the home page; the
+ * radial gradients already fall off softly enough, and animating only
+ * transform keeps both blobs on the compositor.
+ */
+.aurora {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.42;
+  transform: translateZ(0);
+}
+
+.aurora::before,
+.aurora::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 80%;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.aurora::before {
+  left: 4%;
+  top: 0%;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--accent) 75%, transparent),
+    color-mix(in srgb, var(--accent) 28%, transparent) 45%,
+    transparent 72%
+  );
+  animation: aurora-a 22s ease-in-out infinite;
+}
+
+.aurora::after {
+  right: 2%;
+  bottom: -4%;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--accent-warm) 60%, transparent),
+    color-mix(in srgb, var(--accent-warm) 22%, transparent) 45%,
+    transparent 72%
+  );
+  animation: aurora-b 27s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+:root[data-theme="light"] .aurora {
+  opacity: 0.3;
+}
+
+/* Route change sweep. */
+@keyframes route-sweep {
+  0% {
+    transform: translateX(-110%);
+  }
+  100% {
+    transform: translateX(110%);
+  }
+}
+
+/* Hide the native cursor only once the custom one is actually running. */
+.has-custom-cursor,
+.has-custom-cursor a,
+.has-custom-cursor button,
+.has-custom-cursor [role="button"] {
+  cursor: none;
+}
+
+/* Holographic sheen that crosses a heading once it appears. */
+@keyframes holo {
+  0% {
+    background-position: -220% center;
+  }
+  100% {
+    background-position: 220% center;
+  }
+}
+
+.holo {
+  background-image: linear-gradient(
+    100deg,
+    var(--text) 0%,
+    var(--text) 38%,
+    var(--accent) 48%,
+    var(--accent-warm) 54%,
+    var(--text) 64%,
+    var(--text) 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: holo 6s linear infinite;
+}
+
+/* Scanline shimmer for framed media. */
+@keyframes scan {
+  0% {
+    transform: translateY(-120%);
+  }
+  100% {
+    transform: translateY(520%);
+  }
+}
+
+.scanline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 18%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in srgb, var(--accent) 22%, transparent),
+    transparent
+  );
+  animation: scan 5.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
 @keyframes caret {
   0%,
   100% {

@@ -23,8 +23,7 @@ export default function HomeClient() {
           <p className="eyebrow">The living constellation</p>
           <h2
             id="constellation-heading"
-            className="font-display mx-auto mt-3 max-w-xl text-3xl font-semibold sm:text-4xl"
-            style={{ color: "var(--text)" }}
+            className="font-display holo mx-auto mt-3 max-w-xl text-3xl font-semibold sm:text-4xl"
           >
             Four interests. One system.
           </h2>

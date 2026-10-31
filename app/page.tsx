@@ -5,6 +5,9 @@ import Photo from "@/components/photo";
 import HomeClient from "@/components/home-client";
 import CertCard from "@/components/cert-card";
 import Shades from "@/components/shades";
+import Magnetic from "@/components/magnetic";
+import ParticleField from "@/components/particle-field";
+import Scramble from "@/components/scramble";
 import SplitText from "@/components/split-text";
 import Typewriter from "@/components/typewriter";
 import {
@@ -21,7 +24,9 @@ export default function Home() {
     <>
       {/* ---------------- 01 · The entrance ---------------- */}
       <section className="relative overflow-hidden px-4 pb-16 pt-32 sm:px-6 sm:pt-36">
-        <Starfield count={90} />
+        <div className="aurora -z-10" aria-hidden />
+        <ParticleField />
+        <Starfield count={60} />
         <div
           className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[34rem] w-[48rem] -translate-x-1/2"
           style={{
@@ -66,20 +71,24 @@ export default function Home() {
 
             <Reveal delay={280}>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="#work"
-                  className="rounded-full px-6 py-3 text-sm font-medium transition-opacity hover:opacity-85"
-                  style={{ background: "var(--accent)", color: "var(--bg)" }}
-                >
-                  Explore my work →
-                </Link>
-                <Link
-                  href="/about"
-                  className="panel panel-hover rounded-full px-6 py-3 text-sm font-medium"
-                  style={{ color: "var(--text)" }}
-                >
-                  My story
-                </Link>
+                <Magnetic>
+                  <Link
+                    href="#work"
+                    className="inline-block rounded-full px-6 py-3 text-sm font-medium transition-opacity hover:opacity-85"
+                    style={{ background: "var(--accent)", color: "var(--bg)" }}
+                  >
+                    Explore my work →
+                  </Link>
+                </Magnetic>
+                <Magnetic>
+                  <Link
+                    href="/about"
+                    className="panel panel-hover inline-block rounded-full px-6 py-3 text-sm font-medium"
+                    style={{ color: "var(--text)" }}
+                  >
+                    My story
+                  </Link>
+                </Magnetic>
               </div>
             </Reveal>
 
@@ -161,7 +170,7 @@ export default function Home() {
           </Reveal>
 
           <Reveal delay={120}>
-            <p className="eyebrow">01 — The origin story</p>
+            <p className="eyebrow"><Scramble>01 — The origin story</Scramble></p>
             <h2
               className="font-display mt-3 text-4xl font-semibold sm:text-5xl"
               style={{ color: "var(--text)" }}
@@ -198,7 +207,7 @@ export default function Home() {
       {/* ---------------- 04 · industry ---------------- */}
       <section className="mx-auto mt-28 max-w-6xl px-4 sm:px-6">
         <Reveal>
-          <p className="eyebrow">03 — Inside the industry</p>
+          <p className="eyebrow"><Scramble>03 — Inside the industry</Scramble></p>
           <h2
             className="font-display mt-3 text-4xl font-semibold sm:text-5xl"
             style={{ color: "var(--text)" }}
@@ -257,7 +266,7 @@ export default function Home() {
         <Reveal>
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="eyebrow">Certified</p>
+              <p className="eyebrow"><Scramble>Certified</Scramble></p>
               <h2
                 className="font-display mt-3 text-4xl font-semibold sm:text-5xl"
                 style={{ color: "var(--text)" }}
@@ -389,7 +398,7 @@ export default function Home() {
         <Reveal>
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="eyebrow">05 — The builder&apos;s notebook</p>
+              <p className="eyebrow"><Scramble>05 — The builder&apos;s notebook</Scramble></p>
               <h2
                 className="font-display mt-3 text-4xl font-semibold sm:text-5xl"
                 style={{ color: "var(--text)" }}
