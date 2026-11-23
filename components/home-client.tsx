@@ -55,9 +55,9 @@ export default function HomeClient() {
               What I&apos;ve <span className="underline-sketch">built</span>
             </h2>
             <p className="lede mt-5 max-w-lg">
-              Five projects across education, mental health, sustainability and
-              school infrastructure. Each one opens into a full case study —
-              including the parts that did not work.
+              {projects.length} projects across education, mental health,
+              sustainability and school infrastructure. Each one opens into a
+              full case study — including the parts that did not work.
             </p>
           </div>
 

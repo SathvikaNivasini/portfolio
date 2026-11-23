@@ -127,6 +127,72 @@ export default function Home() {
       {/* constellation + filtered project grid */}
       <HomeClient />
 
+      {/* ---------------- 02b · the record ----------------
+          Awards used to sit three-quarters of the way down the page, folded
+          into the section about speaking, which is the one place a reader
+          looking for them would not think to check. They are the evidence
+          for everything above and below, so they come early now. */}
+      <section className="mx-auto mt-28 max-w-6xl px-4 sm:px-6">
+        <Reveal>
+          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="eyebrow"><Scramble>02 — The record</Scramble></p>
+              <h2
+                className="font-display mt-3 text-4xl font-semibold sm:text-5xl"
+                style={{ color: "var(--text)" }}
+              >
+                Awards &amp;
+                <br />
+                honors.
+              </h2>
+            </div>
+            <p className="lede max-w-sm">
+              Global, national and state, across speaking and building. The
+              full list, with what each one was actually for, is on its own
+              page.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {honors.slice(0, 6).map((h, i) => (
+            <Reveal key={h.title} delay={i * 60}>
+              <article className="panel h-full p-6">
+                <p className="eyebrow">
+                  {h.scope} · {h.year}
+                </p>
+                <h3
+                  className="mt-3 text-base font-medium leading-snug"
+                  style={{ color: "var(--text)" }}
+                >
+                  {h.title}
+                </h3>
+                {h.detail && (
+                  <p
+                    className="mt-2.5 text-sm leading-relaxed"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    {h.detail}
+                  </p>
+                )}
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={180}>
+          <div className="mt-8">
+            <Link
+              href="/honors"
+              className="text-sm underline-offset-4 transition-opacity hover:opacity-80"
+              style={{ color: "var(--accent)" }}
+            >
+              Every award, honor and certification &rarr;
+            </Link>
+          </div>
+        </Reveal>
+      </section>
+
       {/* ---------------- 03 · a glimpse of the story ---------------- */}
       <section className="mx-auto mt-28 max-w-6xl px-4 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -356,24 +422,6 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-
-          <Reveal delay={200}>
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {honors.slice(0, 3).map((h) => (
-                <div key={h.title} className="panel p-5">
-                  <p className="eyebrow">
-                    {h.scope} · {h.year}
-                  </p>
-                  <p
-                    className="mt-2.5 text-sm font-medium leading-snug"
-                    style={{ color: "var(--text)" }}
-                  >
-                    {h.title}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
 
           <Reveal delay={280}>
             <div className="mt-10 flex justify-center">

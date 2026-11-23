@@ -5,13 +5,34 @@ import { useEffect, useState } from "react";
 import { pillars, projects, type PillarId } from "@/lib/content";
 
 /** Hand-placed so the figure reads as a constellation rather than a scatter. */
+// Hand-placed so the web reads well rather than being evenly spaced.
 const nodePos: Record<string, { x: number; y: number }> = {
   vakshala: { x: 54, y: 31 },
   cctia: { x: 70, y: 47 },
-  nirvband: { x: 48, y: 63 },
+  "school-software-suite": { x: 66, y: 65 },
+  nirvband: { x: 44, y: 66 },
   photobioreactor: { x: 24, y: 50 },
-  "top-the-graph": { x: 39, y: 44 },
+  "top-the-graph": { x: 37, y: 42 },
 };
+
+/**
+ * Where a project's star sits.
+ *
+ * Hand-placed positions win. Anything without one is dropped on a ring
+ * around the centre, derived from its index, because the previous version
+ * returned null and the project simply vanished from the constellation with
+ * nothing to notice: a new entry in content.ts would be missing here and the
+ * page would still build, still render, and still be wrong.
+ */
+function positionFor(slug: string, index: number, total: number) {
+  const placed = nodePos[slug];
+  if (placed) return placed;
+  const angle = (index / Math.max(total, 1)) * Math.PI * 2 - Math.PI / 2;
+  return {
+    x: 50 + Math.cos(angle) * 19,
+    y: 47 + Math.sin(angle) * 19,
+  };
+}
 
 type Props = {
   active: PillarId | null;
@@ -61,9 +82,8 @@ export default function Constellation({ active, onSelect }: Props) {
 
         {/* edges: each project links to every pillar it belongs to */}
         <g>
-          {projects.flatMap((proj) => {
-            const from = nodePos[proj.slug];
-            if (!from) return [];
+          {projects.flatMap((proj, i) => {
+            const from = positionFor(proj.slug, i, projects.length);
             return proj.pillars.map((pid) => {
               const to = pillars.find((p) => p.id === pid)!;
               const lit =
@@ -91,9 +111,8 @@ export default function Constellation({ active, onSelect }: Props) {
         </g>
 
         {/* project nodes */}
-        {projects.map((proj) => {
-          const pos = nodePos[proj.slug];
-          if (!pos) return null;
+        {projects.map((proj, i) => {
+          const pos = positionFor(proj.slug, i, projects.length);
           const lit = isLit(proj.slug);
           const isHover = hovered === proj.slug;
           return (

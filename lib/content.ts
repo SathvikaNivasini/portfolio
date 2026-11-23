@@ -76,6 +76,34 @@ export const statusLabel: Record<ProjectStatus, string> = {
 
 export type Update = { date: string; note: string };
 
+/**
+ * A flow diagram, as data rather than markup.
+ *
+ * Lanes are columns left to right in the order the work happens; a node sits
+ * in one lane; an edge joins two nodes. `components/flow-diagram.tsx` does the
+ * geometry, so a diagram here stays readable as a description of the system
+ * rather than a pile of coordinates.
+ */
+export type DiagramNode = {
+  id: string;
+  label: string;
+  sub?: string;
+  /** Index into the diagram's `lanes`. */
+  lane: number;
+  /** `core` is the one thing the others point at. */
+  tone?: "publish" | "core" | "consume";
+};
+
+export type DiagramEdge = { from: string; to: string; label?: string };
+
+export type Diagram = {
+  title: string;
+  caption?: string;
+  lanes: string[];
+  nodes: DiagramNode[];
+  edges: DiagramEdge[];
+};
+
 export type Project = {
   slug: string;
   name: string;
@@ -104,6 +132,8 @@ export type Project = {
   updates: Update[];
   /** Optional build photos shown after the architecture section. */
   gallery?: { src: string; alt: string; ratio?: string; caption?: string }[];
+  /** Optional diagrams, drawn under "How it's built". */
+  diagrams?: Diagram[];
   /** Optional videos: a YouTube id, or a local file under /video. */
   videos?: {
     kind: "youtube" | "local";
@@ -571,6 +601,182 @@ export const projects: Project[] = [
       { date: "2026", note: "Founded; faculty sponsor and club approval secured; 120+ members recruited." },
     ],
   },
+  {
+    slug: "school-software-suite",
+    name: "School Software Suite",
+    shortName: "School Suite",
+    tagline: "Four dashboards for Coppell High School, each one replacing a problem the school was solving in group chats.",
+    role: "Independent Developer",
+    years: "2026 — Present",
+    status: "building",
+    pillars: ["technology", "communication", "entrepreneurship"],
+    summary:
+      "Senior Hub, Volunteering Connect, ClubSync and Teacher Tutorials: four apps built independently for Coppell High School, approved by administration and scaling to 2,500+ users.",
+    cover: "/images/projects/school-suite/cover.jpg",
+    stats: [
+      { value: "4", label: "Apps built" },
+      { value: "2,500+", label: "Users at full rollout" },
+      { value: "0", label: "Student logins required" },
+      { value: "1", label: "Developer" },
+    ],
+    links: [],
+    problem: [
+      "A high school runs on information that changes every week: tutorial times, club meetings, graduation deadlines, which organisation still needs volunteers. None of it was anywhere in particular. It lived in group chats, in a teacher's memory, on a poster near the gym, in whichever Instagram story you happened to catch.",
+      "The cost is unevenly distributed, which is why it had gone unfixed. If you are already in the right chats you are fine. If you are new, or quiet, or your friends are in different classes, you simply do not hear things, and the school has no idea that you did not.",
+      "Every one of these four problems had the same shape: a small number of people who know something, a large number who need it, and no shared place between them. So rather than one app that did everything badly, I built four that each do one of them.",
+    ],
+    decisions: [
+      {
+        title: "Students never make an account",
+        body: "Every app is readable without logging in. This started as a privacy decision, because a school app that collects student accounts is a data breach waiting to have my name on it, and turned out to be the adoption decision too: the apps that spread fastest were the ones a student could use the first time they tapped the link, with nothing in the way.",
+      },
+      {
+        title: "One dashboard per problem, not one app for the school",
+        body: "The tempting version is a single Coppell app with four tabs. It is also the version nobody opens, because the tab you need is three taps deep behind three you do not. Four separate dashboards meant each one could be judged on whether it solved its own problem.",
+      },
+      {
+        title: "Exactly two roles: publish and read",
+        body: "Everyone is either someone who knows a thing or someone who needs it. Staff, sponsors, teachers and organisations publish; students read. Collapsing permissions to two roles is what kept four apps buildable by one person.",
+      },
+      {
+        title: "Sign-ups ride on Google Forms",
+        body: "Volunteering Connect could have had its own sign-up and its own database of who is going where. It uses a Google Form instead. The school already trusts it, organisers already know how to read the responses, and it kept student data out of a system I would then have to secure alone.",
+      },
+      {
+        title: "Approval before scale",
+        body: "All four went through school administration before going near a student. An unsanctioned app in a school is one complaint away from being switched off, and the thing I was actually building was something that outlives my graduation.",
+      },
+    ],
+    architecture: [
+      {
+        title: "The shape all four share",
+        body: "A publishing surface for the people who hold the information, one dashboard that is the single source of truth, and a read surface that needs no account. The diagrams below are the same system drawn three ways: the shared pattern, the one app with real scheduling logic, and what a student actually touches.",
+      },
+      {
+        title: "Senior Hub — the one the whole class downloads",
+        body: "Announcements, events and deadlines for the senior class in one dashboard. Staff post and schedule; students see a list view and a calendar view and get notified. It is the app the school uses to reach seniors, which makes it the one with the least tolerance for being wrong.",
+      },
+      {
+        title: "Volunteering Connect — a two-sided problem",
+        body: "Clubs could not find volunteers and students could not find opportunities, which is a discovery problem pretending to be a motivation problem. Organisations publish opportunities and see their own sign-ups; students browse and filter without an account and sign up through a Google Form.",
+      },
+      {
+        title: "ClubSync — the only one with real logic in it",
+        body: "Scheduling a club meeting means satisfying a sponsor's availability and a membership's at once, which is why it lives in scattered messages and usually ends in the wrong room at the wrong time. The sponsor publishes open slots, members vote on what works, and officers finalise from the result. The app does not pick the time; it makes the constraint visible so a human can.",
+      },
+      {
+        title: "Teacher Tutorials — the thing that goes stale",
+        body: "Tutorial times change weekly, which is exactly the kind of information a printed schedule gets wrong by Tuesday. Teachers manage their own week; students search by subject, teacher or room. The whole app exists because the previous answer was asking a friend.",
+      },
+    ],
+    diagrams: [
+      {
+        title: "The pattern underneath all four",
+        caption:
+          "The same three-part shape each time: people who hold the information, one dashboard that holds it instead, and a read surface that asks a student for nothing. Only the left and right columns change between the four apps.",
+        lanes: ["Who publishes", "One dashboard", "Who reads"],
+        nodes: [
+          { id: "staff", label: "School staff", sub: "events, deadlines", lane: 0 },
+          { id: "orgs", label: "Organisations", sub: "opportunities", lane: 0 },
+          { id: "sponsors", label: "Club sponsors", sub: "open slots", lane: 0 },
+          { id: "teachers", label: "Teachers", sub: "weekly tutorial times", lane: 0 },
+          { id: "hub", label: "Single source of truth", sub: "current, dated, one place", lane: 1, tone: "core" },
+          { id: "students", label: "Students", sub: "no account, no login", lane: 2, tone: "consume" },
+          { id: "officers", label: "Officers", sub: "act on the results", lane: 2, tone: "consume" },
+        ],
+        edges: [
+          { from: "staff", to: "hub" },
+          { from: "orgs", to: "hub" },
+          { from: "sponsors", to: "hub" },
+          { from: "teachers", to: "hub" },
+          { from: "hub", to: "students", label: "browse + notify" },
+          { from: "hub", to: "officers" },
+        ],
+      },
+      {
+        title: "A ClubSync scheduling round",
+        caption:
+          "The only app of the four with a real algorithmic problem in it. Note where it stops: the app surfaces the overlap and an officer decides. Automatically picking the time would be a worse product, because the sponsor's constraints are not all in the system and never will be.",
+        lanes: ["Sponsor", "Members", "Officer", "Everyone"],
+        nodes: [
+          { id: "slots", label: "Publishes open slots", sub: "before / after school", lane: 0 },
+          { id: "vote", label: "Vote on times", sub: "one tap per slot", lane: 1, tone: "core" },
+          { id: "tally", label: "Sees the overlap", sub: "who can make what", lane: 2 },
+          { id: "final", label: "Finalises the meeting", lane: 2 },
+          { id: "confirmed", label: "Meeting confirmed", sub: "on everyone's dashboard", lane: 3, tone: "consume" },
+        ],
+        edges: [
+          { from: "slots", to: "vote", label: "opens the window" },
+          { from: "vote", to: "tally", label: "closes after 2 days" },
+          { from: "tally", to: "final" },
+          { from: "final", to: "confirmed" },
+        ],
+      },
+      {
+        title: "What a student actually touches",
+        caption:
+          "The read path, end to end. There is no account, no password reset, and nothing of the student's stored, so the worst case if someone shares a link is that a stranger learns when the physics tutorial is.",
+        lanes: ["Student", "App", "Data"],
+        nodes: [
+          { id: "open", label: "Opens a link", sub: "no sign-in screen", lane: 0 },
+          { id: "search", label: "Searches or filters", sub: "subject, teacher, date", lane: 0 },
+          { id: "read", label: "Read-only view", sub: "list and calendar", lane: 1, tone: "core" },
+          { id: "signup", label: "Google Form", sub: "only to sign up", lane: 1 },
+          { id: "published", label: "Published records", sub: "written by staff only", lane: 2, tone: "consume" },
+          { id: "none", label: "Nothing about the student", sub: "no profile is created", lane: 2, tone: "consume" },
+        ],
+        edges: [
+          { from: "open", to: "read" },
+          { from: "search", to: "read" },
+          { from: "read", to: "published", label: "reads" },
+          { from: "read", to: "none" },
+          { from: "signup", to: "published" },
+        ],
+      },
+    ],
+    failures: [
+      "The first version of ClubSync tried to pick the meeting time itself, by scoring every slot against everyone's votes. It was the most interesting code in the suite and it was wrong: sponsors have constraints that are not in the app and never will be, so a confident wrong answer cost more trust than an honest overlap. Ripping the solver out and showing the raw tally made the app useful.",
+      "I built Senior Hub first and treated the other three as copies of it. Two of them did not fit: Volunteering Connect is two-sided, and Teacher Tutorials is mostly about information going stale rather than information being missing. I lost a fortnight making the wrong abstraction fit before accepting they were different problems.",
+      "Four apps is four things to maintain, by one person, who graduates. That is a real design flaw and the reason the CCTIA structure exists at all; it is not yet solved, only acknowledged.",
+    ],
+    results: [
+      "Four apps designed and built independently, end to end.",
+      "All four approved by Coppell High School administration.",
+      "Scaling to 2,500+ users across the school.",
+      "Senior Hub is the channel the school posts senior-year information to, and the senior class downloads.",
+    ],
+    next: [
+      "Hand each app to a CCTIA department so maintenance survives one person leaving.",
+      "Fold the four dashboards behind one sign-in for staff, while keeping the student side account-free.",
+    ],
+    stack: ["Full stack", "Dashboard UI", "Scheduling logic", "Google Forms", "Stakeholder requirements"],
+    gallery: [
+      {
+        src: "/images/projects/school-suite/senior-hub.jpg",
+        alt: "CHS Senior Hub dashboard: upcoming events, latest updates, information blocks and quick access",
+        caption: "Senior Hub. The dashboard the senior class opens for events, deadlines and updates.",
+      },
+      {
+        src: "/images/projects/school-suite/volunteering-connect.jpg",
+        alt: "CHS Volunteering Connect: featured opportunities with dates, locations and spots left",
+        caption: "Volunteering Connect. Organisations publish; students browse and filter without an account.",
+      },
+      {
+        src: "/images/projects/school-suite/clubsync.jpg",
+        alt: "ClubSync club meeting scheduler: an availability grid for before and after school, with club meetings and a voting countdown",
+        caption: "ClubSync. The availability grid sponsors publish and members vote on.",
+      },
+      {
+        src: "/images/projects/school-suite/teacher-tutorials.jpg",
+        alt: "CHS Tutorials: a weekly schedule grid of teachers and tutorial times, with subject and day filters",
+        caption: "Teacher Tutorials. The week's tutorial times, which teachers update themselves.",
+      },
+    ],
+    updates: [
+      { date: "2026", note: "All four approved by school administration; rolling out across 2,500+ students." },
+      { date: "2026", note: "ClubSync's time-picking solver removed in favour of showing the raw overlap." },
+    ],
+  },
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
@@ -592,6 +798,18 @@ export type Role = {
 };
 
 export const experience: Role[] = [
+  {
+    org: "Coppell High School",
+    title: "Independent Developer, School Software Suite",
+    period: "2026 — Present",
+    location: "Coppell, TX",
+    note: "Four apps, built one at a time, each for a problem the school was solving in group chats.",
+    points: [
+      "Designed and built four apps for the school, each one independently: Senior Hub, which the school posts senior-year information to and every senior downloads; ClubSync, which lets sponsors, officers and members agree on a meeting time; Volunteering Connect, which puts opportunities and the students looking for them in one place; and Teacher Tutorials, which keeps weekly tutorial times current.",
+      "All four approved by school administration and scaling to 2,500+ users across the school.",
+      "No student account anywhere in the suite: every app is readable without logging in, which kept student data out of a system one person would have had to secure alone.",
+    ],
+  },
   {
     org: "Microsoft",
     title: "Cloud Solutions Architecture, Data & AI Intern",
@@ -786,6 +1004,12 @@ export type Honor = {
 };
 
 export const honors: Honor[] = [
+  {
+    title: "Global Runner-Up, Hack the Tech Hackathon",
+    detail: "Placed 2nd globally, awarded for VakShala.",
+    scope: "International",
+    year: "Nov 2026",
+  },
   {
     title: "Global Winner, Toastmasters International Global Groups Public Speaking Championship",
     detail: "Title winner, Humorous category, Global Groups 2024–25.",

@@ -7,7 +7,7 @@ import { projects, statusLabel } from "@/lib/content";
 export const metadata: Metadata = {
   title: "The Lab",
   description:
-    "Five projects across education, mental health, sustainability and school infrastructure — each with a full case study.",
+    `${projects.length} projects across education, mental health, sustainability and school infrastructure, each with a full case study.`,
 };
 
 const order = ["live", "building", "research", "archive"] as const;

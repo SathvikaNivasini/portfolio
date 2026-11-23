@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import CountUp from "@/components/count-up";
 import Photo from "@/components/photo";
 import PhotoWall from "@/components/photo-wall";
+import FlowDiagram from "@/components/flow-diagram";
 import Reveal from "@/components/reveal";
 import Starfield from "@/components/starfield";
 import VideoPlayer from "@/components/video-player";
@@ -279,6 +280,16 @@ export default async function ProjectPage({
             ))}
           </div>
         </Section>
+
+        {project.diagrams && project.diagrams.length > 0 && (
+          <Reveal>
+            <div className="mt-12 space-y-10">
+              {project.diagrams.map((d) => (
+                <FlowDiagram key={d.title} diagram={d} />
+              ))}
+            </div>
+          </Reveal>
+        )}
 
         {project.videos && project.videos.length > 0 && (
           <Section n="03b" title="See it running">
